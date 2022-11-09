@@ -6,7 +6,9 @@ const cors = require("cors");
 app.use(cors());
 const { connection } = require("./config/db");
 const { UserController } = require("./routes/user.route");
+const { MakeupController } = require("./routes/makeup.route");
 app.use("/user", UserController);
+app.use("/makeup", MakeupController);
 const PORT = 8080 || process.env.PORT;
 
 app.listen(PORT, async () => {
