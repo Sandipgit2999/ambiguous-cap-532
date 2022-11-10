@@ -1,4 +1,4 @@
-import { Box, Button, Divider, MenuButton, MenuItem, MenuList, VStack,Menu } from "@chakra-ui/react";
+import { Box, Button, Divider, MenuButton, MenuItem, MenuList, VStack,Menu,Checkbox } from "@chakra-ui/react";
 import React from "react";
 import { Text } from "@chakra-ui/react";
 import { ChevronRightIcon} from '@chakra-ui/icons'
@@ -10,9 +10,27 @@ export const Filter = () => {
    
   const [searchParams,setSearchParams]= useSearchParams()
   const initialBrandFilter = searchParams.getAll("brand");
+  const initialCategoryFilter = searchParams.getAll("category");
   console.log(initialBrandFilter)
+  console.log(initialCategoryFilter)
   const [brand,setBrand]= useState(initialBrandFilter || [])
+  const [category,setCategory] = useState(initialCategoryFilter || [])
 
+
+  //Category
+  const handleCategoryCheckbox =(e)=>{
+    const newCategory = [...category];
+    if(newCategory.includes(e.target.value)){
+      newCategory.splice(newCategory.indexOf(e.target.value),1);
+    }else{
+      newCategory.push(e.target.value);
+    }
+    setCategory(newCategory)
+  }
+
+
+
+  //Brand
   const handleBrandCheckbox =(e)=>{
     const newBrand = [...brand];
     if(newBrand.includes(e.target.value)){
@@ -24,75 +42,32 @@ export const Filter = () => {
   }
 
   useEffect(()=>{
-    if(brand){
+    if(brand && category){
       let params={};
       brand && (params.brand = brand);
+      category && (params.category = category)
       setSearchParams(params)
     }
-  },[brand,searchParams])
+  },[brand,category,searchParams])
   //console.log(brand)
   return (
-    <Box bg="AppWorkspace" m="10" h="auto" w={"80"} textAlign={"center"}>
+    <Box margin="1px solid black" m="10" h="auto" w={"80"} textAlign={"center"}>
       <Text fontSize={"xl"}>CATEGORY</Text>
-      <VStack>
-        <div>
-        <div>
-          <input type="checkbox" />
-          <label>Pencil</label>
-        </div>
-        <div>
-          <input type="checkbox" />
-          <label>Lipstick</label>
-        </div>
-        <div>
-          <input type="checkbox" />
-          <label>Concealer</label>
-        </div>
-        <div>
-          <input type="checkbox" />
-          <label>Powder</label>
-        </div>
-        <div>
-          <input type="checkbox" />
-          <label>High Lighter</label>
-        </div>
-        <div>
-          <input type="checkbox" />
-          <label>Cream</label>
-        </div>
-        <div>
-          <input type="checkbox" />
-          <label>Gel</label>
-        </div>
-        <div>
-          <input type="checkbox" />
-          <label>Liquid</label>
-        </div>
-        <div>
-          <input type="checkbox" />
-          <label>BB_CC</label>
-        </div>
-        <div>
-          <input type="checkbox" />
-          <label>Palette</label>
-        </div>
-        <div>
-          <input type="checkbox" />
-          <label>Contour</label>
-        </div>
-        <div>
-          <input type="checkbox" />
-          <label>Lip Gloss</label>
-        </div>
-        <div>
-          <input type="checkbox" />
-          <label>Lip Stain</label>
-        </div>
-        <div>
-          <input type="checkbox" />
-          <label>Mineral</label>
-        </div>
-        </div>
+      <VStack  onChange={handleCategoryCheckbox}>
+        <Box> <input type="checkbox"value="pencil" checked={category.includes("pencil")}/>Pencil</Box>
+        <Box> <input type="checkbox" value="lipstick" checked={category.includes("lipstick")}/>Lipstick</Box>
+          <Box> <input type="checkbox"  value="concealer" checked={category.includes("concealer")}/>Concealer</Box>
+          <Box><input type="checkbox"  value="powder" checked={category.includes("powder")}/>Powder</Box>
+          <Box> <input type="checkbox" value="highlighter" checked={category.includes("highlighter")}/>High Lighter</Box>
+          <Box> <input type="checkbox"  value="cream" checked={category.includes("cream")}/>Cream</Box>
+          <Box> <input type="checkbox" value="gel" checked={category.includes("gel")}/>Gel</Box>
+          <Box> <input type="checkbox" value="liquid" checked={category.includes("liquid")}/>Liquid</Box>
+          <Box> <input type="checkbox" value="bb_cc" checked={category.includes("bb_cc")}/>BB_CC</Box>
+          <Box> <input type="checkbox" value="palette" checked={category.includes("palette")}/>Palette</Box>
+          <Box> <input type="checkbox" value="contour" checked={category.includes("contour")}/>Contour</Box>
+          <Box> <input type="checkbox" value="lip_gloss" checked={category.includes("lip_gloss")}/>Lip Gloss</Box>  
+          <Box> <input type="checkbox" value="lip_stain" checked={category.includes("lip_stain")}/>Lip Stain</Box>
+          <Box> <input type="checkbox" value="mineral" checked={category.includes("mineral")}/>Mineral</Box>
       </VStack>
       <Divider />
       <Box p={4}>
@@ -134,9 +109,4 @@ export const Filter = () => {
   );
 };
 
-// {
-//   products.map((item)=>{
-//     <input type="checkbox" />
-//     return <Text key={item.id}>{item.category}</Text>
-//   })
-//  }
+
