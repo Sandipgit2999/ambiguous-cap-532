@@ -26,7 +26,7 @@ export const Products = () => {
     }
   }, [location.search]);
 
-  //console.log(products);
+  console.log(products);
 
   return (
     <>

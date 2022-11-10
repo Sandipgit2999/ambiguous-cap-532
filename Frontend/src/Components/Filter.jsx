@@ -11,8 +11,8 @@ export const Filter = () => {
   const [searchParams,setSearchParams]= useSearchParams()
   const initialBrandFilter = searchParams.getAll("brand");
   const initialCategoryFilter = searchParams.getAll("category");
-  console.log(initialBrandFilter)
-  console.log(initialCategoryFilter)
+  // console.log(initialBrandFilter)
+  // console.log(initialCategoryFilter)
   const [brand,setBrand]= useState(initialBrandFilter || [])
   const [category,setCategory] = useState(initialCategoryFilter || [])
 
