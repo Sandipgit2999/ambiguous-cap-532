@@ -9,10 +9,10 @@
 .Navbar-11 {
   width: 98%;
   display: flex;
-  justify-content: space-evenly; 
+  justify-content: space-evenly;
 }
 
-.Navbar-11>div {
+.Navbar-11 > div {
   width: auto;
   height: 60px;
   /* border: 2px solid rgb(128, 0, 34); */
@@ -91,7 +91,7 @@
   background-color: #d1cfcf;
 }
 
-.header--left>ul {
+.header--left > ul {
   justify-content: space-evenly;
   display: flex;
   margin-top: 22px;
@@ -107,7 +107,7 @@
   border: 1px solid #ccc;
   margin: 18px 2px;
   width: 97%;
-  line-height:normal;
+  line-height: normal;
   position: absolute;
   left: 0;
   z-index: 1;
