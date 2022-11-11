@@ -1,16 +1,18 @@
-import React from "react";
-import "./Footer.css";
-export default function Footer() {
+
+import "./Footer.css";  
+import React from 'react'
+
+const Footer = () => {
   return (
     <div>
-      <div className="Footercontainer-1">
-        <h2 className="Footer-11">
-          {" "}
-          <b> GET THE LATEST NEWS & OFFERS IN BEAUTY & FASHION </b>
-        </h2>
+       <div className="Footercontainer-1">
+         <h2 className="Footer-11">
+           {" "}
+           <b> GET THE LATEST NEWS & OFFERS IN BEAUTY & FASHION </b>
+         </h2>
         <div className="Footer-12">
-          <div className="Footer-13">
-            <input
+       <div className="Footer-13">
+        <input
               className="Footer-14"
               type="text"
               placeholder="Enter your email address"
@@ -611,7 +613,10 @@ export default function Footer() {
           </div>
         </div>
         {/* <ScrollButton/> */}
-      </div>
+      </div>      
     </div>
-  );
+  )
 }
+
+export default Footer
+
