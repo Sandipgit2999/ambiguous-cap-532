@@ -1,15 +1,19 @@
 import React from 'react'
-import {Routes,Route} from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
+
+import { Products } from "../Pages/Products"
+
 // import HomePage from '../Pages/HomePage'
-import {Products} from "../Pages/Products"
+
+
 
 export const Allroutes = () => {
   return (
     <div>
-        <Routes>
+      <Routes>
         {/* <Route path="/" element={<HomePage/>}></Route> */}
-            <Route path="/products" element={<Products/>}></Route>
-        </Routes>
+        <Route path="/products" element={<Products />}></Route>
+      </Routes>
     </div>
   )
 }
