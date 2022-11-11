@@ -8,6 +8,7 @@ import {
   VStack,
   Menu,
   Checkbox,
+  Input,
 } from "@chakra-ui/react";
 import React from "react";
 import { Text } from "@chakra-ui/react";
@@ -18,16 +19,18 @@ import { useEffect } from "react";
 import { Products } from "./Pages/Products";
 import { useSelector } from "react-redux";
 
-export const Filter = ({setVal}) => {
+export const Filter = ({ setVal }) => {
   const products = useSelector((state) => state.products);
   // console.log(products);
   const [searchParams, setSearchParams] = useSearchParams();
   const initialBrandFilter = searchParams.getAll("brand");
   const initialCategoryFilter = searchParams.getAll("category");
   const initialPriceFilter = searchParams.getAll("price");
+  const initialSortBy = searchParams.getAll("sortBy");
   const [brand, setBrand] = useState(initialBrandFilter || []);
   const [category, setCategory] = useState(initialCategoryFilter || []);
   const [price, setPrice] = useState(initialPriceFilter || []);
+  const [sortBy, setSortBy] = useState(initialSortBy[0] || "");
 
   const [val1, setVal1] = useState(0);
   const [val2, setVal2] = useState(0);
@@ -68,7 +71,11 @@ export const Filter = ({setVal}) => {
     setPrice(newPrice);
   };
 
-  
+  const handleSort = (e) => {
+    setSortBy(e.target.value);
+  };
+ // console.log("SortBy", sortBy);
+
   // }
 
   // const filterProd = (a,b) =>{
@@ -91,16 +98,16 @@ export const Filter = ({setVal}) => {
   //     console.log(j);
   //   });
   // };
-  
 
   useEffect(() => {
-    if (brand && category) {
+    if (brand && category && sortBy) {
       let params = {};
       brand && (params.brand = brand);
       category && (params.category = category);
+      sortBy && (params.sortBy = sortBy);
       setSearchParams(params);
     }
-  }, [brand, category, searchParams]);
+  }, [brand, category,sortBy ,searchParams]);
   //console.log(brand)
   return (
     <Box margin="1px solid black" m="10" h="auto" w={"80"} textAlign={"center"}>
@@ -481,20 +488,37 @@ export const Filter = ({setVal}) => {
               Rs. 1999
             </MenuItem>
             <MenuItem>
-              <input type="checkbox" onClick={() => setVal(2000,3000)} /> Rs.2000 -
-              Rs. 2999
+              <input type="checkbox" onClick={() => setVal(2000, 3000)} />{" "}
+              Rs.2000 - Rs. 2999
             </MenuItem>
             <MenuItem>
-              <input type="checkbox" onClick={() => setVal(3500,3500)} />
+              <input type="checkbox" onClick={() => setVal(3500, 3500)} />
               Rs.3000 - Rs. 3499{" "}
             </MenuItem>
             <MenuItem>
-              <input type="checkbox" onClick={() => setVal(3500,4000)} /> Rs.3500 -
-              Rs. 3999
+              <input type="checkbox" onClick={() => setVal(3500, 4000)} />{" "}
+              Rs.3500 - Rs. 3999
             </MenuItem>
             <MenuItem>
-              <input type="checkbox" onClick={() => setVal(4000,Infinity)} /> Above
-              Rs.4000
+              <input type="checkbox" onClick={() => setVal(4000, Infinity)} />{" "}
+              Above Rs.4000
+            </MenuItem>
+          </MenuList>
+        </Menu>
+      </Box>
+
+      {/* Sort high to low */}
+      <Box>
+        <Menu>
+          <MenuButton as={Button} rightIcon={<ChevronRightIcon />}>
+            Sort
+          </MenuButton>
+          <MenuList onClick={handleSort}>
+            <MenuItem value="asc" name="sortBy" defaultChecked={sortBy === "asc"}>
+              Low to Hight
+            </MenuItem>
+            <MenuItem value="desc" name="sortBy" defaultChecked={sortBy === "desc"}>
+              High to Low
             </MenuItem>
           </MenuList>
         </Menu>

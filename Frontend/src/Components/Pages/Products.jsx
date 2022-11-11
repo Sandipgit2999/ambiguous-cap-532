@@ -23,28 +23,32 @@ export const Products = () => {
 
   useEffect(() => {
     if (location || products.length === 0) {
+      const sortBy = searchParams.get('sortBy')
       let getProductParams = {
         params: {
           brand: searchParams.getAll("brand"),
           category: searchParams.getAll("category"),
-          price : searchParams.getAll("price")
+          price : searchParams.getAll("price"),
+          _sort: sortBy && 'price',
+          _order : sortBy, 
         },
       };
+      console.log(getProductParams)
       dispatch(getProducts(getProductParams));   
     }
     
   }, [location.search]);
    function setVal(a, b) {
-    console.log("in")
+  //  console.log("in")
     let data = products
       .filter((e) => e.price >= a || e.price < b)
       .sort((x, y) => x.price-y.price);
-      console.log(data,"sortinggsdfgdgfgfg")
+     // console.log(data,"sortinggsdfgdgfgfg")
       
       setNewProd(data)
-      console.log(data,"sorted")
+     // console.log(data,"sorted")
   }
-  console.log(newProd,"out")
+  //console.log(newProd,"out")
 
   return (
     <>
