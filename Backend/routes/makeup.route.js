@@ -11,6 +11,12 @@ MakeupController.get("/", async (req, res) => {
   res.send(makeup_model);
 });
 
+MakeupController.get("/:productId", async (req, res) => {
+  const { productId } = req.params;
+  const makeup_model = await MakeupModel.find({ _id: productId });
+  res.send(makeup_model);
+});
+
 // MakeupController.post("/create", async (req, res) => {
 //   console.log(req.body);
 //   const new_makeup_model = await MakeupModel.insertMany(obj1);
