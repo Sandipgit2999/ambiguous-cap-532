@@ -20,7 +20,7 @@ export const reducer = (state = initial, action) => {
         ...state,
         isLoading: false,
         isError: false,
-        products: payload,
+        products: payload.map((e)=>e.price?{...e,price:e.price*500}:e),
       };
     case types.GET_PRODUCTS_FAILURE:
       return {
