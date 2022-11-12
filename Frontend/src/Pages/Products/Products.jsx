@@ -1,14 +1,28 @@
 import React, { useState } from "react";
+<<<<<<< HEAD:Frontend/src/Pages/Products.jsx
+import { Box, Flex, Grid, GridItem } from "@chakra-ui/react";
+import { Filter } from "../Components/Filter";
+=======
 import { Box, Flex, Grid} from "@chakra-ui/react";
 import { Filter } from "../../Components/Filter";
+>>>>>>> be296d92eeb6baee30a96052169aeaf2e3cd21b1:Frontend/src/Pages/Products/Products.jsx
 import { useSelector, useDispatch } from "react-redux";
 import { ProductCard } from "./ProductCard";
 import { useEffect } from "react";
-import { getProducts } from "../../Redux/Products/action";
+import { getProducts } from "../Redux/Products/action";
 import { useLocation, useSearchParams } from "react-router-dom";
+<<<<<<< HEAD:Frontend/src/Pages/Products.jsx
+import Footer from "../Components/footer/Footer";
+import Navbar from "../Components/navbar/Navbar";
+
+
+
+
+=======
 import Footer from "../../Components/footer/Footer";
 import Navbar from "../../Components/navbar/Navbar";
 // import styles from "../Pages/Products/ProductCard.module.css"
+>>>>>>> be296d92eeb6baee30a96052169aeaf2e3cd21b1:Frontend/src/Pages/Products/Products.jsx
 
 export const Products = () => {
   const products = useSelector((state) => state.products);
