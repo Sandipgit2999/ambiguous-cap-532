@@ -7,8 +7,18 @@ app.use(cors());
 const { connection } = require("./config/db");
 const { UserController } = require("./routes/user.route");
 const { MakeupController } = require("./routes/makeup.route");
+const { CartController } = require("./routes/cart.route");
+const { authorization } = require("./middlewares/Authorization");
+const { FavouriteController } = require("./routes/favourite.route");
 app.use("/user", UserController);
 app.use("/makeup", MakeupController);
+app.get("/", (req, res) => {
+  res.send({ msg: "welcome to sephora.com" });
+});
+app.use("/cart", CartController);
+app.use(authorization);
+
+app.use("/favourite", FavouriteController);
 const PORT = 8080 || process.env.PORT;
 
 app.listen(PORT, async () => {
