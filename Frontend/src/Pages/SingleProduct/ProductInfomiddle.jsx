@@ -21,16 +21,18 @@ const ProductInfomiddle = () => {
 
     const { id } = useParams();
 
-    const prodid = "636fe4239da7290510072c38"
+    const prodid = "636b8c35f8c307387e35e346";
     const Addtocart = (id) => {
         axios.post(`https://ambigious-cap-backend.onrender.com/cart/create/${id}`)
             .then((res) => {
                 console.log(res);
-                //alert(res.data.msg)
+                alert(res.data.msg)
             })
             .catch((err) => {
                 console.log(err)
             })
+
+        console.log("Hii")
     }
 
 

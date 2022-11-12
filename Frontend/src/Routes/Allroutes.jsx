@@ -1,13 +1,8 @@
 import React from 'react'
 import { Routes, Route } from "react-router-dom"
 
-
-import { Products } from "../Pages/Products"
 import ProductInfo from '../Pages/SingleProduct/ProductInfo'
 import { Products } from "../Pages/Products/Products"
-
-
-
 
 
 
