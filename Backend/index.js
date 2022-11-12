@@ -12,9 +12,12 @@ const { authorization } = require("./middlewares/Authorization");
 const { FavouriteController } = require("./routes/favourite.route");
 app.use("/user", UserController);
 app.use("/makeup", MakeupController);
-
-app.use(authorization);
+app.get("/", (req, res) => {
+  res.send({ msg: "welcome to sephora.com" });
+});
 app.use("/cart", CartController);
+app.use(authorization);
+
 app.use("/favourite", FavouriteController);
 const PORT = 8080 || process.env.PORT;
 
