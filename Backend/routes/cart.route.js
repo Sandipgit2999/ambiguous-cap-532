@@ -5,15 +5,16 @@ const CartController = Router();
 
 CartController.get("/", async (req, res) => {
   const { userId } = req.body;
-  const cart_model = await CartModel.find({ userId });
+  const cart_model = await CartModel.find();
   res.send(cart_model);
 });
 
 CartController.post("/create/:productId", async (req, res) => {
   const { userId } = req.body;
   const { productId } = req.params;
+  console.log(".....",productId)
   const makeup_model = await MakeupModel.findOne({ _id: productId });
-  //console.log(userId);
+  console.log("makeup_model", makeup_model);
   const {
     _id,
     brand,
@@ -25,10 +26,10 @@ CartController.post("/create/:productId", async (req, res) => {
     product_type,
     rating,
   } = makeup_model;
-  //console.log(brand);
+  console.log("_id", _id);
 
   const cart_model = await CartModel.findOne({ oldId: productId });
-
+  console.log("cart_modle", cart_model);
   if (cart_model) {
     res.send({ msg: "product already in cart" });
   } else {
@@ -42,7 +43,6 @@ CartController.post("/create/:productId", async (req, res) => {
       category,
       product_type,
       rating,
-      userId,
     });
     await new_cart_model.save();
     //console.log("----new cart model", new_cart_model);
@@ -59,9 +59,9 @@ CartController.delete("/delete/:prodId", async (req, res) => {
   // if(cart.userId === userId){
 
   if (prodId.length === 24) {
-    const cart_model = await CartModel.findOne({ _id: prodId, userId });
+    const cart_model = await CartModel.findOne({ _id: prodId });
     if (cart_model) {
-      await CartModel.findOneAndDelete({ _id: prodId, userId });
+      await CartModel.findOneAndDelete({ _id: prodId });
       res.send({ message: "successfully deleted" });
     }
 

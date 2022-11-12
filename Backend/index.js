@@ -15,9 +15,9 @@ app.use("/makeup", MakeupController);
 app.get("/", (req, res) => {
   res.send({ msg: "welcome to sephora.com" });
 });
-
-app.use(authorization);
 app.use("/cart", CartController);
+app.use(authorization);
+
 app.use("/favourite", FavouriteController);
 const PORT = 8080 || process.env.PORT;
 
