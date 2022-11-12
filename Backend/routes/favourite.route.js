@@ -55,9 +55,9 @@ FavouriteController.post("/create/:productId", async (req, res) => {
 FavouriteController.delete("/delete/:prodId", async (req, res) => {
   const { prodId } = req.params;
   //const prodId=Number(productId)
-  console.log(prodId);
+  //console.log(prodId);
   const { userId } = req.body;
-  console.log(userId,"userId");
+ // console.log(userId,"userId");
 
   if (prodId.length === 24) {
     const favourite_model = await FavouriteModel.findOne({
