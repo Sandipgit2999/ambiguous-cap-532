@@ -1,0 +1,3 @@
+export const CART_DATA_LOADING = " CART_DATA_LOADING";
+export const CART_DATA_SUCESS = "CART_DATA_SUCESS";
+export const CART_DATA_FAIL = "CART_DATA_FAIL "
