@@ -1,28 +1,17 @@
 import React, { useState } from "react";
-<<<<<<< HEAD:Frontend/src/Pages/Products.jsx
+
 import { Box, Flex, Grid, GridItem } from "@chakra-ui/react";
-import { Filter } from "../Components/Filter";
-=======
-import { Box, Flex, Grid} from "@chakra-ui/react";
 import { Filter } from "../../Components/Filter";
->>>>>>> be296d92eeb6baee30a96052169aeaf2e3cd21b1:Frontend/src/Pages/Products/Products.jsx
 import { useSelector, useDispatch } from "react-redux";
 import { ProductCard } from "./ProductCard";
 import { useEffect } from "react";
-import { getProducts } from "../Redux/Products/action";
+import { getProducts } from "../../Redux/Products/action";
 import { useLocation, useSearchParams } from "react-router-dom";
-<<<<<<< HEAD:Frontend/src/Pages/Products.jsx
-import Footer from "../Components/footer/Footer";
-import Navbar from "../Components/navbar/Navbar";
-
-
-
-
-=======
 import Footer from "../../Components/footer/Footer";
 import Navbar from "../../Components/navbar/Navbar";
+
 // import styles from "../Pages/Products/ProductCard.module.css"
->>>>>>> be296d92eeb6baee30a96052169aeaf2e3cd21b1:Frontend/src/Pages/Products/Products.jsx
+
 
 export const Products = () => {
   const products = useSelector((state) => state.products);
@@ -30,7 +19,7 @@ export const Products = () => {
   const [searchParams] = useSearchParams();
   const location = useLocation();
   const dispatch = useDispatch();
-  
+
   console.log(products);
 
   useEffect(() => {
@@ -63,24 +52,24 @@ export const Products = () => {
 
   return (
     <>
-     <Navbar/>
-    <Flex h="100vh"
-    //  border="1px green solid"
-      w='100%' >
-       
-      <Box>
-      <Filter setVal={setVal}  />
-      </Box>
-      <Box h="100%" overflow="scroll" overflowX={"hidden"} className="container">
+      <Navbar />
+      <Flex h="100vh"
+        //  border="1px green solid"
+        w='100%' >
+
+        <Box>
+          <Filter setVal={setVal} />
+        </Box>
+        <Box h="100%" overflow="scroll" overflowX={"hidden"} className="container">
           <Grid templateColumns="repeat(3, 1fr)" gap={1}>
             {products.map((item) => {
               return <ProductCard key={item.id} item={item} />;
             })}
           </Grid>
-      </Box>
-    
-    </Flex>
-    <Footer />
+        </Box>
+
+      </Flex>
+      <Footer />
     </>
   );
 };

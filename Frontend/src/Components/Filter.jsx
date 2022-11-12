@@ -1,5 +1,5 @@
 import {
-   Box,
+  Box,
   Button,
   Divider,
   MenuButton,
@@ -16,10 +16,8 @@ import { ChevronRightIcon } from "@chakra-ui/icons";
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useEffect } from "react";
-<<<<<<< HEAD
-import { Products } from "../Pages/Products";
-=======
->>>>>>> be296d92eeb6baee30a96052169aeaf2e3cd21b1
+
+import { Products } from "../Pages/Products/Products";
 import { useSelector } from "react-redux";
 
 export const Filter = ({ setVal }) => {
@@ -77,7 +75,7 @@ export const Filter = ({ setVal }) => {
   const handleSort = (e) => {
     setSortBy(e.target.value);
   };
- // console.log("SortBy", sortBy);
+  // console.log("SortBy", sortBy);
 
   // }
 
@@ -110,14 +108,14 @@ export const Filter = ({ setVal }) => {
       sortBy && (params.sortBy = sortBy);
       setSearchParams(params);
     }
-  }, [brand, category,sortBy ,searchParams]);
+  }, [brand, category, sortBy, searchParams]);
   //console.log(brand)
   return (
     < Box bm="10" w="300px"
     //  border={'2px solid red'}
-     >
-      <Text p={"0rem 0rem 1rem 0rem"} textAlign={'start'}fontSize={15} fontWeight={"bold"}>CATEGORY</Text>
-      <VStack alignItems={'flex-start'}  onChange={handleCategoryCheckbox}>
+    >
+      <Text p={"0rem 0rem 1rem 0rem"} textAlign={'start'} fontSize={15} fontWeight={"bold"}>CATEGORY</Text>
+      <VStack alignItems={'flex-start'} onChange={handleCategoryCheckbox}>
         < Box>
           <input
             type="checkbox"
@@ -136,7 +134,7 @@ export const Filter = ({ setVal }) => {
           Lipstick
         </ Box>
         < Box>
-   
+
           <input
             type="checkbox"
             value="concealer"
@@ -153,7 +151,7 @@ export const Filter = ({ setVal }) => {
           Powder
         </ Box>
         < Box>
-  
+
           <input
             type="checkbox"
             value="highlighter"
@@ -162,7 +160,7 @@ export const Filter = ({ setVal }) => {
           High Lighter
         </ Box>
         < Box>
-  
+
           <input
             type="checkbox"
             value="cream"
@@ -171,7 +169,7 @@ export const Filter = ({ setVal }) => {
           Cream
         </ Box>
         < Box>
-     
+
           <input
             type="checkbox"
             value="gel"
@@ -180,7 +178,7 @@ export const Filter = ({ setVal }) => {
           Gel
         </ Box>
         < Box>
-  
+
           <input
             type="checkbox"
             value="liquid"
@@ -198,7 +196,7 @@ export const Filter = ({ setVal }) => {
           Palette
         </ Box>
         < Box>
-     
+
           <input
             type="checkbox"
             value="lip_gloss"
@@ -210,301 +208,301 @@ export const Filter = ({ setVal }) => {
       <Divider />
       {/* brand */}
       < Box
-      //  border={"2px solid blue"} 
-      w={"100"}>
-      < Box p={"1rem 0rem 0rem 0rem"} alignItems={'flex-start'}  w={"100%"}>
-        <Text  textAlign={'start'}fontSize={15} fontWeight={"bold"}>FILTER BY</Text>
-        <Menu  >
-          <MenuButton textAlign={'left'} mt={2} w={"100%"}
-          // border={"3px solid black"} 
-          borderRadius={1}  as={Button} rightIcon={<ChevronRightIcon />}>
-            Brands
-          </MenuButton>
-          <MenuList>
-            <MenuItem>
-              <input
-                type="checkbox"
-                onChange={handleBrandCheckbox}
-                value="colourpop"
-                checked={brand.includes("colourpop")}
-              />
-              Colourpop
-            </MenuItem>
-            <MenuItem>
-              <input
-                type="checkbox"
-                onChange={handleBrandCheckbox}
-                value="glossier"
-                checked={brand.includes("glossier")}
-              />
-              Glossier
-            </MenuItem>
-            <MenuItem>
-              <input
-                type="checkbox"
-                onChange={handleBrandCheckbox}
-                value="nyx"
-                checked={brand.includes("nyx")}
-              />
-              Nyx
-            </MenuItem>
-            <MenuItem>
-              <input
-                type="checkbox"
-                onChange={handleBrandCheckbox}
-                value="clinique"
-                checked={brand.includes("clinique")}
-              />
-              Clinique
-            </MenuItem>
-            <MenuItem>
-              <input
-                type="checkbox"
-                onChange={handleBrandCheckbox}
-                value="dior"
-                checked={brand.includes("dior")}
-              />
-              Dior
-            </MenuItem>
-            <MenuItem>
-              <input
-                type="checkbox"
-                onChange={handleBrandCheckbox}
-                value="smashbox"
-                checked={brand.includes("smashbox")}
-              />
-              Smashbox
-            </MenuItem>
-            <MenuItem>
-              <input
-                type="checkbox"
-                onChange={handleBrandCheckbox}
-                value="marcelle"
-                checked={brand.includes("marcelle")}
-              />
-              Marcelle
-            </MenuItem>
-            <MenuItem>
-              <input
-                type="checkbox"
-                onChange={handleBrandCheckbox}
-                value="stila"
-                checked={brand.includes("stila")}
-              />
-              Stila
-            </MenuItem>
-            <MenuItem>
-              <input
-                type="checkbox"
-                onChange={handleBrandCheckbox}
-                value="mineral fusion"
-                checked={brand.includes("mineral fusion")}
-              />
-              Mineral Fusion
-            </MenuItem>
-            <MenuItem>
-              <input
-                type="checkbox"
-                onChange={handleBrandCheckbox}
-                value="annabelle"
-                checked={brand.includes("annabelle")}
-              />
-              Annabelle
-            </MenuItem>
-            <MenuItem>
-              <input
-                type="checkbox"
-                onChange={handleBrandCheckbox}
-                value="dr. hauschka"
-                checked={brand.includes("dr. hauschka")}
-              />
-              Dr.Hauschka
-            </MenuItem>
-            <MenuItem>
-              <input
-                type="checkbox"
-                onChange={handleBrandCheckbox}
-                value="physicians formula"
-                checked={brand.includes("physicians formula")}
-              />
-              Physicains Formula
-            </MenuItem>
-            <MenuItem>
-              <input
-                type="checkbox"
-                onChange={handleBrandCheckbox}
-                value="cargo cosmetics"
-                checked={brand.includes("cargo cosmetics")}
-              />
-              Cargo Cosmetics
-            </MenuItem>
-            <MenuItem>
-              <input
-                type="checkbox"
-                onChange={handleBrandCheckbox}
-                value="covergirl"
-                checked={brand.includes("covergirl")}
-              />
-              Covergirl
-            </MenuItem>
-            <MenuItem>
-              <input
-                type="checkbox"
-                onChange={handleBrandCheckbox}
-                value="e.l.f"
-                checked={brand.includes("e.l.f")}
-              />
-              E.L.F
-            </MenuItem>
-            <MenuItem>
-              <input
-                type="checkbox"
-                onChange={handleBrandCheckbox}
-                value="maybelline"
-                checked={brand.includes("maybelline")}
-              />
-              Maybelline
-            </MenuItem>
-            <MenuItem>
-              <input
-                type="checkbox"
-                onChange={handleBrandCheckbox}
-                value="almay"
-                checked={brand.includes("almay")}
-              />
-              Almay
-            </MenuItem>
-            <MenuItem>
-              <input
-                type="checkbox"
-                onChange={handleBrandCheckbox}
-                value="sante"
-                checked={brand.includes("sante")}
-              />
-              Sante
-            </MenuItem>
-            <MenuItem>
-              <input
-                type="checkbox"
-                onChange={handleBrandCheckbox}
-                value="revlon"
-                checked={brand.includes("revlon")}
-              />
-              Revlon
-            </MenuItem>
-            <MenuItem>
-              <input
-                type="checkbox"
-                onChange={handleBrandCheckbox}
-                value="l'oreal"
-                checked={brand.includes("l'oreal")}
-              />
-              L'oreal
-            </MenuItem>
-            <MenuItem>
-              <input
-                type="checkbox"
-                onChange={handleBrandCheckbox}
-                value="stila"
-                checked={brand.includes("stila")}
-              />
-              Stila
-            </MenuItem>
-            <MenuItem>
-              <input
-                type="checkbox"
-                onChange={handleBrandCheckbox}
-                value="milani"
-                checked={brand.includes("milani")}
-              />
-              Milani
-            </MenuItem>
-            <MenuItem>
-              <input
-                type="checkbox"
-                onChange={handleBrandCheckbox}
-                value="pure anada"
-                checked={brand.includes("pure anada")}
-              />
-              Pure anada
-            </MenuItem>
-            <MenuItem>
-              <input
-                type="checkbox"
-                onChange={handleBrandCheckbox}
-                value="wet n wild"
-                checked={brand.includes("wet n wild")}
-              />
-              Wet n Wild
-            </MenuItem>
-            <MenuItem>
-              <input
-                type="checkbox"
-                onChange={handleBrandCheckbox}
-                value="pacifica"
-                checked={brand.includes("pacifica")}
-              />
-              Pacifica
-            </MenuItem>
-          </MenuList>
-        </Menu>
-      </ Box>
+        //  border={"2px solid blue"} 
+        w={"100"}>
+        < Box p={"1rem 0rem 0rem 0rem"} alignItems={'flex-start'} w={"100%"}>
+          <Text textAlign={'start'} fontSize={15} fontWeight={"bold"}>FILTER BY</Text>
+          <Menu  >
+            <MenuButton textAlign={'left'} mt={2} w={"100%"}
+              // border={"3px solid black"} 
+              borderRadius={1} as={Button} rightIcon={<ChevronRightIcon />}>
+              Brands
+            </MenuButton>
+            <MenuList>
+              <MenuItem>
+                <input
+                  type="checkbox"
+                  onChange={handleBrandCheckbox}
+                  value="colourpop"
+                  checked={brand.includes("colourpop")}
+                />
+                Colourpop
+              </MenuItem>
+              <MenuItem>
+                <input
+                  type="checkbox"
+                  onChange={handleBrandCheckbox}
+                  value="glossier"
+                  checked={brand.includes("glossier")}
+                />
+                Glossier
+              </MenuItem>
+              <MenuItem>
+                <input
+                  type="checkbox"
+                  onChange={handleBrandCheckbox}
+                  value="nyx"
+                  checked={brand.includes("nyx")}
+                />
+                Nyx
+              </MenuItem>
+              <MenuItem>
+                <input
+                  type="checkbox"
+                  onChange={handleBrandCheckbox}
+                  value="clinique"
+                  checked={brand.includes("clinique")}
+                />
+                Clinique
+              </MenuItem>
+              <MenuItem>
+                <input
+                  type="checkbox"
+                  onChange={handleBrandCheckbox}
+                  value="dior"
+                  checked={brand.includes("dior")}
+                />
+                Dior
+              </MenuItem>
+              <MenuItem>
+                <input
+                  type="checkbox"
+                  onChange={handleBrandCheckbox}
+                  value="smashbox"
+                  checked={brand.includes("smashbox")}
+                />
+                Smashbox
+              </MenuItem>
+              <MenuItem>
+                <input
+                  type="checkbox"
+                  onChange={handleBrandCheckbox}
+                  value="marcelle"
+                  checked={brand.includes("marcelle")}
+                />
+                Marcelle
+              </MenuItem>
+              <MenuItem>
+                <input
+                  type="checkbox"
+                  onChange={handleBrandCheckbox}
+                  value="stila"
+                  checked={brand.includes("stila")}
+                />
+                Stila
+              </MenuItem>
+              <MenuItem>
+                <input
+                  type="checkbox"
+                  onChange={handleBrandCheckbox}
+                  value="mineral fusion"
+                  checked={brand.includes("mineral fusion")}
+                />
+                Mineral Fusion
+              </MenuItem>
+              <MenuItem>
+                <input
+                  type="checkbox"
+                  onChange={handleBrandCheckbox}
+                  value="annabelle"
+                  checked={brand.includes("annabelle")}
+                />
+                Annabelle
+              </MenuItem>
+              <MenuItem>
+                <input
+                  type="checkbox"
+                  onChange={handleBrandCheckbox}
+                  value="dr. hauschka"
+                  checked={brand.includes("dr. hauschka")}
+                />
+                Dr.Hauschka
+              </MenuItem>
+              <MenuItem>
+                <input
+                  type="checkbox"
+                  onChange={handleBrandCheckbox}
+                  value="physicians formula"
+                  checked={brand.includes("physicians formula")}
+                />
+                Physicains Formula
+              </MenuItem>
+              <MenuItem>
+                <input
+                  type="checkbox"
+                  onChange={handleBrandCheckbox}
+                  value="cargo cosmetics"
+                  checked={brand.includes("cargo cosmetics")}
+                />
+                Cargo Cosmetics
+              </MenuItem>
+              <MenuItem>
+                <input
+                  type="checkbox"
+                  onChange={handleBrandCheckbox}
+                  value="covergirl"
+                  checked={brand.includes("covergirl")}
+                />
+                Covergirl
+              </MenuItem>
+              <MenuItem>
+                <input
+                  type="checkbox"
+                  onChange={handleBrandCheckbox}
+                  value="e.l.f"
+                  checked={brand.includes("e.l.f")}
+                />
+                E.L.F
+              </MenuItem>
+              <MenuItem>
+                <input
+                  type="checkbox"
+                  onChange={handleBrandCheckbox}
+                  value="maybelline"
+                  checked={brand.includes("maybelline")}
+                />
+                Maybelline
+              </MenuItem>
+              <MenuItem>
+                <input
+                  type="checkbox"
+                  onChange={handleBrandCheckbox}
+                  value="almay"
+                  checked={brand.includes("almay")}
+                />
+                Almay
+              </MenuItem>
+              <MenuItem>
+                <input
+                  type="checkbox"
+                  onChange={handleBrandCheckbox}
+                  value="sante"
+                  checked={brand.includes("sante")}
+                />
+                Sante
+              </MenuItem>
+              <MenuItem>
+                <input
+                  type="checkbox"
+                  onChange={handleBrandCheckbox}
+                  value="revlon"
+                  checked={brand.includes("revlon")}
+                />
+                Revlon
+              </MenuItem>
+              <MenuItem>
+                <input
+                  type="checkbox"
+                  onChange={handleBrandCheckbox}
+                  value="l'oreal"
+                  checked={brand.includes("l'oreal")}
+                />
+                L'oreal
+              </MenuItem>
+              <MenuItem>
+                <input
+                  type="checkbox"
+                  onChange={handleBrandCheckbox}
+                  value="stila"
+                  checked={brand.includes("stila")}
+                />
+                Stila
+              </MenuItem>
+              <MenuItem>
+                <input
+                  type="checkbox"
+                  onChange={handleBrandCheckbox}
+                  value="milani"
+                  checked={brand.includes("milani")}
+                />
+                Milani
+              </MenuItem>
+              <MenuItem>
+                <input
+                  type="checkbox"
+                  onChange={handleBrandCheckbox}
+                  value="pure anada"
+                  checked={brand.includes("pure anada")}
+                />
+                Pure anada
+              </MenuItem>
+              <MenuItem>
+                <input
+                  type="checkbox"
+                  onChange={handleBrandCheckbox}
+                  value="wet n wild"
+                  checked={brand.includes("wet n wild")}
+                />
+                Wet n Wild
+              </MenuItem>
+              <MenuItem>
+                <input
+                  type="checkbox"
+                  onChange={handleBrandCheckbox}
+                  value="pacifica"
+                  checked={brand.includes("pacifica")}
+                />
+                Pacifica
+              </MenuItem>
+            </MenuList>
+          </Menu>
+        </ Box>
 
-      {/* Price */}
+        {/* Price */}
 
-      < Box p={"1rem 0rem 0rem 0rem"} w={"100%"}>
-        <Menu>
-          <MenuButton textAlign={'left'}   w={"100%"}
-          // border={"3px solid black"}
-           borderRadius={1}  as={Button} rightIcon={<ChevronRightIcon />}>
-            Price
-          </MenuButton>
-          <MenuList>
-            <MenuItem>
-              <input type="checkbox" onClick={() => setVal(0, 2000)} /> Below
-              Rs. 1999
-            </MenuItem>
-            <MenuItem>
-              <input type="checkbox" onClick={() => setVal(2000, 3000)} />
-              Rs.2000 - Rs. 2999
-            </MenuItem>
-            <MenuItem>
-              <input type="checkbox" onClick={() => setVal(3500, 3500)} />
-              Rs.3000 - Rs. 3499
-            </MenuItem>
-            <MenuItem>
-              <input type="checkbox" onClick={() => setVal(3500, 4000)} />
-              Rs.3500 - Rs. 3999
-            </MenuItem>
-            <MenuItem>
-              <input type="checkbox" onClick={() => setVal(4000, Infinity)} />
-              Above Rs.4000
-            </MenuItem>
-          </MenuList>
-        </Menu>
-      </ Box>
+        < Box p={"1rem 0rem 0rem 0rem"} w={"100%"}>
+          <Menu>
+            <MenuButton textAlign={'left'} w={"100%"}
+              // border={"3px solid black"}
+              borderRadius={1} as={Button} rightIcon={<ChevronRightIcon />}>
+              Price
+            </MenuButton>
+            <MenuList>
+              <MenuItem>
+                <input type="checkbox" onClick={() => setVal(0, 2000)} /> Below
+                Rs. 1999
+              </MenuItem>
+              <MenuItem>
+                <input type="checkbox" onClick={() => setVal(2000, 3000)} />
+                Rs.2000 - Rs. 2999
+              </MenuItem>
+              <MenuItem>
+                <input type="checkbox" onClick={() => setVal(3500, 3500)} />
+                Rs.3000 - Rs. 3499
+              </MenuItem>
+              <MenuItem>
+                <input type="checkbox" onClick={() => setVal(3500, 4000)} />
+                Rs.3500 - Rs. 3999
+              </MenuItem>
+              <MenuItem>
+                <input type="checkbox" onClick={() => setVal(4000, Infinity)} />
+                Above Rs.4000
+              </MenuItem>
+            </MenuList>
+          </Menu>
+        </ Box>
 
-      {/* Sort high to low */}
-      < Box postion="fixed" p={"1rem 0rem 0rem 0rem"} w={"100%"}>
-        <Menu>
-          <MenuButton 
-          textAlign={'left'}
-            w={"100%"}
-            // border="3px solid black"
-             borderRadius={1} as={Button} rightIcon={<ChevronRightIcon />}>
-            Sort
-          </MenuButton>
-          <MenuList onClick={handleSort}>
-            <MenuItem value="asc" name="sortBy" defaultChecked={sortBy === "asc"}>
-              Low to Hight
-            </MenuItem>
-            <MenuItem value="desc" name="sortBy" defaultChecked={sortBy === "desc"}>
-              High to Low
-            </MenuItem>
-          </MenuList>
-        </Menu>
-      </ Box>
-      
+        {/* Sort high to low */}
+        < Box postion="fixed" p={"1rem 0rem 0rem 0rem"} w={"100%"}>
+          <Menu>
+            <MenuButton
+              textAlign={'left'}
+              w={"100%"}
+              // border="3px solid black"
+              borderRadius={1} as={Button} rightIcon={<ChevronRightIcon />}>
+              Sort
+            </MenuButton>
+            <MenuList onClick={handleSort}>
+              <MenuItem value="asc" name="sortBy" defaultChecked={sortBy === "asc"}>
+                Low to Hight
+              </MenuItem>
+              <MenuItem value="desc" name="sortBy" defaultChecked={sortBy === "desc"}>
+                High to Low
+              </MenuItem>
+            </MenuList>
+          </Menu>
+        </ Box>
+
       </ Box>
     </ Box>
   );
