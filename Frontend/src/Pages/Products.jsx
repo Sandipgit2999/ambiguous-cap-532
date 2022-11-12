@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Box, Flex, Grid, GridItem } from "@chakra-ui/react";
-import { Filter } from "../Filter";
+import { Filter } from "../Components/Filter";
 import { useSelector, useDispatch } from "react-redux";
 import { ProductCard } from "./ProductCard";
 import { useEffect } from "react";
-import { getProducts } from "../../Redux/Products/action";
+import { getProducts } from "../Redux/Products/action";
 import { useLocation, useSearchParams } from "react-router-dom";
-import Footer from "../footer/Footer";
-import Navbar from "../navbar/Navbar";
+import Footer from "../Components/footer/Footer";
+import Navbar from "../Components/navbar/Navbar";
 
 
 

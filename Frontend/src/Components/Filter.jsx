@@ -16,7 +16,7 @@ import { ChevronRightIcon } from "@chakra-ui/icons";
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useEffect } from "react";
-import { Products } from "./Pages/Products";
+import { Products } from "../Pages/Products";
 import { useSelector } from "react-redux";
 
 export const Filter = ({ setVal }) => {
