@@ -18,11 +18,11 @@ export const ProductCard = ({ item }) => {
   return (
     <Grid >
       <Box border={"1px solid red"} onMouseEnter={showOtherImage} onMouseLeave={showOriginalImage}>
-        <Image src={img} h="base" />
-        <Text fontWeight="bold" textTransform={"uppercase"}>{item.brand}</Text>
+        <Image h={380} src={img} w={"100%"}/>
+        <Text mt={2} fontWeight="bold" textTransform={"uppercase"}>{item.brand}</Text>
         <Text>{item.name}</Text>
-        <Text>Rs: {item.price}</Text>
-        <Text>{item.id}</Text>
+        <Text fontWeight="bold" fontSize={13}>Rs: {item.price}</Text>
+        {/* <Text>{item.id}</Text> */}
 
       </Box>
     </Grid>

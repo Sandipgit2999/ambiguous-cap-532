@@ -9,52 +9,52 @@ import { useLocation, useSearchParams } from "react-router-dom";
 import Footer from "../footer/Footer";
 import Navbar from "../navbar/Navbar";
 
-
-
-
-
 export const Products = () => {
   const products = useSelector((state) => state.products);
-  const [newProd,setNewProd]=useState([...products]||[])
+  const [newProd, setNewProd] = useState([...products] || []);
   const [searchParams] = useSearchParams();
   const location = useLocation();
   const dispatch = useDispatch();
-  console.log(products)
+  console.log(products);
 
   useEffect(() => {
     if (location || products.length === 0) {
-      const sortBy = searchParams.get('sortBy')
+      const sortBy = searchParams.get("sortBy");
       let getProductParams = {
         params: {
           brand: searchParams.getAll("brand"),
           category: searchParams.getAll("category"),
-          price : searchParams.getAll("price"),
-          _sort: sortBy && 'price',
-          _order : sortBy, 
+          price: searchParams.getAll("price"),
+          _sort: sortBy && "price",
+          _order: sortBy,
         },
       };
-      console.log(getProductParams)
-      dispatch(getProducts(getProductParams));   
+      console.log(getProductParams);
+      dispatch(getProducts(getProductParams));
     }
-    
   }, [location.search]);
-   function setVal(a, b) {
-  //  console.log("in")
+  function setVal(a, b) {
+    //  console.log("in")
     let data = products
       .filter((e) => e.price >= a || e.price < b)
-      .sort((x, y) => x.price-y.price);
-     // console.log(data,"sortinggsdfgdgfgfg")
-      
-      setNewProd(data)
-     // console.log(data,"sorted")
+      .sort((x, y) => x.price - y.price);
+    // console.log(data,"sortinggsdfgdgfgfg")
+
+    setNewProd(data);
+    // console.log(data,"sorted")
   }
   //console.log(newProd,"out")
 
   return (
     <>
-      {/* <Navbar/> */}
+       <Navbar/>
+   
+    <Box >
+     
+      
       <Flex>
-         <Filter setVal={setVal} />
+        
+        <Filter setVal={setVal} />
         <Flex
           direction="column"
           justifyContent="center"
@@ -70,6 +70,7 @@ export const Products = () => {
         </Flex>
       </Flex>
       <Footer />
+    </Box>
     </>
   );
 };

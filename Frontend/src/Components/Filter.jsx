@@ -100,7 +100,7 @@ export const Filter = ({ setVal }) => {
   // };
 
   useEffect(() => {
-    if (brand && category && sortBy) {
+    if (brand || category || sortBy) {
       let params = {};
       brand && (params.brand = brand);
       category && (params.category = category);
@@ -110,10 +110,10 @@ export const Filter = ({ setVal }) => {
   }, [brand, category,sortBy ,searchParams]);
   //console.log(brand)
   return (
-    <Box margin="1px solid black" m="10" h="auto" w={"80"} textAlign={"center"}>
-      <Text fontSize={"xl"}>CATEGORY</Text>
-      <VStack onChange={handleCategoryCheckbox}>
-        <Box>
+    <Box bm="10" h="auto" w={"40%"} border={'1px solid red'}>
+      <Text p={"0rem 0rem 1rem 0rem"}textAlign={'start'}fontSize={15} fontWeight={"bold"}>CATEGORY</Text>
+      <VStack alignItems={'flex-start'}  onChange={handleCategoryCheckbox}>
+        <Box >
           <input
             type="checkbox"
             value="pencil"
@@ -239,11 +239,13 @@ export const Filter = ({ setVal }) => {
         </Box>
       </VStack>
       <Divider />
-      <Box p={4}>
-        <Text fontSize={"xl"}>FILTER BY</Text>
-        <Menu>
-          <MenuButton as={Button} rightIcon={<ChevronRightIcon />}>
-            BRANDS
+      {/* brand */}
+      <Box border={"2px solid blue"} w={"100"}>
+      <Box p={"1rem 0rem 0rem 0rem"} alignItems={'flex-start'}  w={"100%"}>
+        <Text  textAlign={'start'}fontSize={15} fontWeight={"bold"}>FILTER BY</Text>
+        <Menu  >
+          <MenuButton textAlign={'left'} mt={2} w={"100%"}border={"3px solid black"} borderRadius={1}  as={Button} rightIcon={<ChevronRightIcon />}>
+            Brands
           </MenuButton>
           <MenuList>
             <MenuItem>
@@ -477,9 +479,9 @@ export const Filter = ({ setVal }) => {
 
       {/* Price */}
 
-      <Box p={4}>
+      <Box p={"1rem 0rem 0rem 0rem"} w={"100%"}>
         <Menu>
-          <MenuButton as={Button} rightIcon={<ChevronRightIcon />}>
+          <MenuButton textAlign={'left'}   w={"100%"}border={"3px solid black"} borderRadius={1}  as={Button} rightIcon={<ChevronRightIcon />}>
             Price
           </MenuButton>
           <MenuList>
@@ -508,9 +510,9 @@ export const Filter = ({ setVal }) => {
       </Box>
 
       {/* Sort high to low */}
-      <Box>
+      <Box postion="fixed" p={"1rem 0rem 0rem 0rem"} w={"100%"}>
         <Menu>
-          <MenuButton as={Button} rightIcon={<ChevronRightIcon />}>
+          <MenuButton textAlign={'left'}  w={"100%"}border="3px solid black" borderRadius={1} as={Button} rightIcon={<ChevronRightIcon />}>
             Sort
           </MenuButton>
           <MenuList onClick={handleSort}>
@@ -522,6 +524,8 @@ export const Filter = ({ setVal }) => {
             </MenuItem>
           </MenuList>
         </Menu>
+      </Box>
+      
       </Box>
     </Box>
   );
