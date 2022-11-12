@@ -1,5 +1,5 @@
 import {
-  Box,
+   Box,
   Button,
   Divider,
   MenuButton,
@@ -16,7 +16,6 @@ import { ChevronRightIcon } from "@chakra-ui/icons";
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useEffect } from "react";
-import { Products } from "./Pages/Products";
 import { useSelector } from "react-redux";
 
 export const Filter = ({ setVal }) => {
@@ -110,141 +109,111 @@ export const Filter = ({ setVal }) => {
   }, [brand, category,sortBy ,searchParams]);
   //console.log(brand)
   return (
-    <Box bm="10" h="auto" w={"40%"} border={'1px solid red'}>
-      <Text p={"0rem 0rem 1rem 0rem"}textAlign={'start'}fontSize={15} fontWeight={"bold"}>CATEGORY</Text>
+    < Box bm="10" w="300px"
+    //  border={'2px solid red'}
+     >
+      <Text p={"0rem 0rem 1rem 0rem"} textAlign={'start'}fontSize={15} fontWeight={"bold"}>CATEGORY</Text>
       <VStack alignItems={'flex-start'}  onChange={handleCategoryCheckbox}>
-        <Box >
+        < Box>
           <input
             type="checkbox"
             value="pencil"
             checked={category.includes("pencil")}
           />
           Pencil
-        </Box>
-        <Box>
-          {" "}
+        </ Box>
+        < Box>
+
           <input
             type="checkbox"
             value="lipstick"
             checked={category.includes("lipstick")}
           />
           Lipstick
-        </Box>
-        <Box>
-          {" "}
+        </ Box>
+        < Box>
+   
           <input
             type="checkbox"
             value="concealer"
             checked={category.includes("concealer")}
           />
           Concealer
-        </Box>
-        <Box>
+        </ Box>
+        < Box>
           <input
             type="checkbox"
             value="powder"
             checked={category.includes("powder")}
           />
           Powder
-        </Box>
-        <Box>
-          {" "}
+        </ Box>
+        < Box>
+  
           <input
             type="checkbox"
             value="highlighter"
             checked={category.includes("highlighter")}
           />
           High Lighter
-        </Box>
-        <Box>
-          {" "}
+        </ Box>
+        < Box>
+  
           <input
             type="checkbox"
             value="cream"
             checked={category.includes("cream")}
           />
           Cream
-        </Box>
-        <Box>
-          {" "}
+        </ Box>
+        < Box>
+     
           <input
             type="checkbox"
             value="gel"
             checked={category.includes("gel")}
           />
           Gel
-        </Box>
-        <Box>
-          {" "}
+        </ Box>
+        < Box>
+  
           <input
             type="checkbox"
             value="liquid"
             checked={category.includes("liquid")}
           />
           Liquid
-        </Box>
-        <Box>
-          {" "}
-          <input
-            type="checkbox"
-            value="bb_cc"
-            checked={category.includes("bb_cc")}
-          />
-          BB_CC
-        </Box>
-        <Box>
-          {" "}
+        </ Box>
+        < Box>
+
           <input
             type="checkbox"
             value="palette"
             checked={category.includes("palette")}
           />
           Palette
-        </Box>
-        <Box>
-          {" "}
-          <input
-            type="checkbox"
-            value="contour"
-            checked={category.includes("contour")}
-          />
-          Contour
-        </Box>
-        <Box>
-          {" "}
+        </ Box>
+        < Box>
+     
           <input
             type="checkbox"
             value="lip_gloss"
             checked={category.includes("lip_gloss")}
           />
           Lip Gloss
-        </Box>
-        <Box>
-          {" "}
-          <input
-            type="checkbox"
-            value="lip_stain"
-            checked={category.includes("lip_stain")}
-          />
-          Lip Stain
-        </Box>
-        <Box>
-          {" "}
-          <input
-            type="checkbox"
-            value="mineral"
-            checked={category.includes("mineral")}
-          />
-          Mineral
-        </Box>
+        </ Box>
       </VStack>
       <Divider />
       {/* brand */}
-      <Box border={"2px solid blue"} w={"100"}>
-      <Box p={"1rem 0rem 0rem 0rem"} alignItems={'flex-start'}  w={"100%"}>
+      < Box
+      //  border={"2px solid blue"} 
+      w={"100"}>
+      < Box p={"1rem 0rem 0rem 0rem"} alignItems={'flex-start'}  w={"100%"}>
         <Text  textAlign={'start'}fontSize={15} fontWeight={"bold"}>FILTER BY</Text>
         <Menu  >
-          <MenuButton textAlign={'left'} mt={2} w={"100%"}border={"3px solid black"} borderRadius={1}  as={Button} rightIcon={<ChevronRightIcon />}>
+          <MenuButton textAlign={'left'} mt={2} w={"100%"}
+          // border={"3px solid black"} 
+          borderRadius={1}  as={Button} rightIcon={<ChevronRightIcon />}>
             Brands
           </MenuButton>
           <MenuList>
@@ -254,7 +223,7 @@ export const Filter = ({ setVal }) => {
                 onChange={handleBrandCheckbox}
                 value="colourpop"
                 checked={brand.includes("colourpop")}
-              />{" "}
+              />
               Colourpop
             </MenuItem>
             <MenuItem>
@@ -263,7 +232,7 @@ export const Filter = ({ setVal }) => {
                 onChange={handleBrandCheckbox}
                 value="glossier"
                 checked={brand.includes("glossier")}
-              />{" "}
+              />
               Glossier
             </MenuItem>
             <MenuItem>
@@ -273,7 +242,7 @@ export const Filter = ({ setVal }) => {
                 value="nyx"
                 checked={brand.includes("nyx")}
               />
-              Nyx{" "}
+              Nyx
             </MenuItem>
             <MenuItem>
               <input
@@ -281,7 +250,7 @@ export const Filter = ({ setVal }) => {
                 onChange={handleBrandCheckbox}
                 value="clinique"
                 checked={brand.includes("clinique")}
-              />{" "}
+              />
               Clinique
             </MenuItem>
             <MenuItem>
@@ -290,7 +259,7 @@ export const Filter = ({ setVal }) => {
                 onChange={handleBrandCheckbox}
                 value="dior"
                 checked={brand.includes("dior")}
-              />{" "}
+              />
               Dior
             </MenuItem>
             <MenuItem>
@@ -299,7 +268,7 @@ export const Filter = ({ setVal }) => {
                 onChange={handleBrandCheckbox}
                 value="smashbox"
                 checked={brand.includes("smashbox")}
-              />{" "}
+              />
               Smashbox
             </MenuItem>
             <MenuItem>
@@ -308,7 +277,7 @@ export const Filter = ({ setVal }) => {
                 onChange={handleBrandCheckbox}
                 value="marcelle"
                 checked={brand.includes("marcelle")}
-              />{" "}
+              />
               Marcelle
             </MenuItem>
             <MenuItem>
@@ -317,7 +286,7 @@ export const Filter = ({ setVal }) => {
                 onChange={handleBrandCheckbox}
                 value="stila"
                 checked={brand.includes("stila")}
-              />{" "}
+              />
               Stila
             </MenuItem>
             <MenuItem>
@@ -326,7 +295,7 @@ export const Filter = ({ setVal }) => {
                 onChange={handleBrandCheckbox}
                 value="mineral fusion"
                 checked={brand.includes("mineral fusion")}
-              />{" "}
+              />
               Mineral Fusion
             </MenuItem>
             <MenuItem>
@@ -335,7 +304,7 @@ export const Filter = ({ setVal }) => {
                 onChange={handleBrandCheckbox}
                 value="annabelle"
                 checked={brand.includes("annabelle")}
-              />{" "}
+              />
               Annabelle
             </MenuItem>
             <MenuItem>
@@ -344,7 +313,7 @@ export const Filter = ({ setVal }) => {
                 onChange={handleBrandCheckbox}
                 value="dr. hauschka"
                 checked={brand.includes("dr. hauschka")}
-              />{" "}
+              />
               Dr.Hauschka
             </MenuItem>
             <MenuItem>
@@ -353,7 +322,7 @@ export const Filter = ({ setVal }) => {
                 onChange={handleBrandCheckbox}
                 value="physicians formula"
                 checked={brand.includes("physicians formula")}
-              />{" "}
+              />
               Physicains Formula
             </MenuItem>
             <MenuItem>
@@ -362,7 +331,7 @@ export const Filter = ({ setVal }) => {
                 onChange={handleBrandCheckbox}
                 value="cargo cosmetics"
                 checked={brand.includes("cargo cosmetics")}
-              />{" "}
+              />
               Cargo Cosmetics
             </MenuItem>
             <MenuItem>
@@ -371,7 +340,7 @@ export const Filter = ({ setVal }) => {
                 onChange={handleBrandCheckbox}
                 value="covergirl"
                 checked={brand.includes("covergirl")}
-              />{" "}
+              />
               Covergirl
             </MenuItem>
             <MenuItem>
@@ -380,7 +349,7 @@ export const Filter = ({ setVal }) => {
                 onChange={handleBrandCheckbox}
                 value="e.l.f"
                 checked={brand.includes("e.l.f")}
-              />{" "}
+              />
               E.L.F
             </MenuItem>
             <MenuItem>
@@ -389,7 +358,7 @@ export const Filter = ({ setVal }) => {
                 onChange={handleBrandCheckbox}
                 value="maybelline"
                 checked={brand.includes("maybelline")}
-              />{" "}
+              />
               Maybelline
             </MenuItem>
             <MenuItem>
@@ -398,7 +367,7 @@ export const Filter = ({ setVal }) => {
                 onChange={handleBrandCheckbox}
                 value="almay"
                 checked={brand.includes("almay")}
-              />{" "}
+              />
               Almay
             </MenuItem>
             <MenuItem>
@@ -407,7 +376,7 @@ export const Filter = ({ setVal }) => {
                 onChange={handleBrandCheckbox}
                 value="sante"
                 checked={brand.includes("sante")}
-              />{" "}
+              />
               Sante
             </MenuItem>
             <MenuItem>
@@ -416,7 +385,7 @@ export const Filter = ({ setVal }) => {
                 onChange={handleBrandCheckbox}
                 value="revlon"
                 checked={brand.includes("revlon")}
-              />{" "}
+              />
               Revlon
             </MenuItem>
             <MenuItem>
@@ -425,7 +394,7 @@ export const Filter = ({ setVal }) => {
                 onChange={handleBrandCheckbox}
                 value="l'oreal"
                 checked={brand.includes("l'oreal")}
-              />{" "}
+              />
               L'oreal
             </MenuItem>
             <MenuItem>
@@ -434,7 +403,7 @@ export const Filter = ({ setVal }) => {
                 onChange={handleBrandCheckbox}
                 value="stila"
                 checked={brand.includes("stila")}
-              />{" "}
+              />
               Stila
             </MenuItem>
             <MenuItem>
@@ -443,7 +412,7 @@ export const Filter = ({ setVal }) => {
                 onChange={handleBrandCheckbox}
                 value="milani"
                 checked={brand.includes("milani")}
-              />{" "}
+              />
               Milani
             </MenuItem>
             <MenuItem>
@@ -452,7 +421,7 @@ export const Filter = ({ setVal }) => {
                 onChange={handleBrandCheckbox}
                 value="pure anada"
                 checked={brand.includes("pure anada")}
-              />{" "}
+              />
               Pure anada
             </MenuItem>
             <MenuItem>
@@ -461,7 +430,7 @@ export const Filter = ({ setVal }) => {
                 onChange={handleBrandCheckbox}
                 value="wet n wild"
                 checked={brand.includes("wet n wild")}
-              />{" "}
+              />
               Wet n Wild
             </MenuItem>
             <MenuItem>
@@ -470,18 +439,20 @@ export const Filter = ({ setVal }) => {
                 onChange={handleBrandCheckbox}
                 value="pacifica"
                 checked={brand.includes("pacifica")}
-              />{" "}
+              />
               Pacifica
             </MenuItem>
           </MenuList>
         </Menu>
-      </Box>
+      </ Box>
 
       {/* Price */}
 
-      <Box p={"1rem 0rem 0rem 0rem"} w={"100%"}>
+      < Box p={"1rem 0rem 0rem 0rem"} w={"100%"}>
         <Menu>
-          <MenuButton textAlign={'left'}   w={"100%"}border={"3px solid black"} borderRadius={1}  as={Button} rightIcon={<ChevronRightIcon />}>
+          <MenuButton textAlign={'left'}   w={"100%"}
+          // border={"3px solid black"}
+           borderRadius={1}  as={Button} rightIcon={<ChevronRightIcon />}>
             Price
           </MenuButton>
           <MenuList>
@@ -490,29 +461,33 @@ export const Filter = ({ setVal }) => {
               Rs. 1999
             </MenuItem>
             <MenuItem>
-              <input type="checkbox" onClick={() => setVal(2000, 3000)} />{" "}
+              <input type="checkbox" onClick={() => setVal(2000, 3000)} />
               Rs.2000 - Rs. 2999
             </MenuItem>
             <MenuItem>
               <input type="checkbox" onClick={() => setVal(3500, 3500)} />
-              Rs.3000 - Rs. 3499{" "}
+              Rs.3000 - Rs. 3499
             </MenuItem>
             <MenuItem>
-              <input type="checkbox" onClick={() => setVal(3500, 4000)} />{" "}
+              <input type="checkbox" onClick={() => setVal(3500, 4000)} />
               Rs.3500 - Rs. 3999
             </MenuItem>
             <MenuItem>
-              <input type="checkbox" onClick={() => setVal(4000, Infinity)} />{" "}
+              <input type="checkbox" onClick={() => setVal(4000, Infinity)} />
               Above Rs.4000
             </MenuItem>
           </MenuList>
         </Menu>
-      </Box>
+      </ Box>
 
       {/* Sort high to low */}
-      <Box postion="fixed" p={"1rem 0rem 0rem 0rem"} w={"100%"}>
+      < Box postion="fixed" p={"1rem 0rem 0rem 0rem"} w={"100%"}>
         <Menu>
-          <MenuButton textAlign={'left'}  w={"100%"}border="3px solid black" borderRadius={1} as={Button} rightIcon={<ChevronRightIcon />}>
+          <MenuButton 
+          textAlign={'left'}
+            w={"100%"}
+            // border="3px solid black"
+             borderRadius={1} as={Button} rightIcon={<ChevronRightIcon />}>
             Sort
           </MenuButton>
           <MenuList onClick={handleSort}>
@@ -524,9 +499,9 @@ export const Filter = ({ setVal }) => {
             </MenuItem>
           </MenuList>
         </Menu>
-      </Box>
+      </ Box>
       
-      </Box>
-    </Box>
+      </ Box>
+    </ Box>
   );
 };
