@@ -1,7 +1,8 @@
 import { Box, Grid, Text, Image, Flex } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { BsHandbag } from "react-icons/bs";
-import {AiOutlineHeart} from "react-icons/ai"
+import { AiOutlineHeart } from "react-icons/ai"
+import { Link } from "react-router-dom";
 
 export const ProductCard = ({ item }) => {
   const [visible, setVisible] = useState(false);
@@ -17,7 +18,7 @@ export const ProductCard = ({ item }) => {
         setVisible(false);
       }}
     >
-      <Box>
+      <Link to={`/products/${item._id}`}><Box>
         <Image h={380} src={item.image_link} w={"100%"} />
         <Text mt={2} fontWeight="bold" textTransform={"uppercase"}>
           {item.brand}
@@ -27,7 +28,7 @@ export const ProductCard = ({ item }) => {
           Rs: {item.price}
         </Text>
         <Text>{item.id}</Text>
-      </Box>
+      </Box></Link>
       <Box
         className={visible ? "hov" : "nonhover"}
         // bg="#aaf0d1 "
@@ -42,12 +43,12 @@ export const ProductCard = ({ item }) => {
       >
         <Flex justifyContent={"space-between"} alignItems="center">
           <Box>
-          <BsHandbag color="white" fontSize={"50"} />
-          <Text color="white">SHOP NOW</Text>
+            <BsHandbag color="white" fontSize={"50"} />
+            <Text color="white">SHOP NOW</Text>
           </Box>
           <Box >
-          <AiOutlineHeart color="white" fontSize={"55"} />
-          <Text color="white">FAVOURITE</Text>
+            <AiOutlineHeart color="white" fontSize={"55"} />
+            <Text color="white">FAVOURITE</Text>
           </Box>
         </Flex>
       </Box>
