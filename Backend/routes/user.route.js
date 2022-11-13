@@ -31,33 +31,56 @@ UserController.post("/signup", async (req, res) => {
 });
 
 UserController.post("/login", async (req, res) => {
-  //const { email, password } = req.body;
+  const { email, password } = req.body;
 
-  if (req.body.email) {
-    const email = req.body.email;
-    const user = await UserModel.findOne({ email });
-    console.log(user, "---user-----");
+  const user = await UserModel.findOne({ email });
+  if (user) {
+    const hash = user.password;
+    bcrypt.compare(password, hash, async (err, result) => {
+      if (err) {
+        res.send({ msg: "Something went wrong please try later" });
+      }
 
-    if (user) {
-      //res.send({ msg: "User created successfully" });
-      res.send({ find: true, email });
-    } else {
-      res.send({ msg: "User not found please sign in first" });
-    }
-  } else if (req.body.phone) {
-    const phone = req.body.phone;
-    const user = await UserModel.findOne({ phone: req.body.phone });
-    console.log(user, "---user-----");
-    const email = user.email;
-    if (user) {
-      //res.send({ msg: "User created successfully" });
-      res.send({ find: true, email });
-    } else {
-      res.send({ msg: "User not found please sign in first" });
-      //res.send({ find: false });
-    }
+      if (result) {
+        const token = jwt.sign({ userId: user.id, email: user.email }, secret);
+        res.send({ msg: "successfully login", token: token });
+      } else {
+        res.send({ msg: "something is not good" });
+      }
+    });
+  } else {
+    res.send({ msg: "User not found please sign in first" });
   }
 });
+
+// UserController.post("/login", async (req, res) => {
+//   const { email, password } = req.body;
+
+//   if (req.body.email) {
+//     const email = req.body.email;
+//     const user = await UserModel.findOne({ email });
+//     console.log(user, "---user-----");
+
+//     if (user) {
+//       //res.send({ msg: "User created successfully" });
+//       res.send({ find: true, email });
+//     } else {
+//       res.send({ msg: "User not found please sign in first" });
+//     }
+//   } else if (req.body.phone) {
+//     const phone = req.body.phone;
+//     const user = await UserModel.findOne({ phone: req.body.phone });
+//     console.log(user, "---user-----");
+//     const email = user.email;
+//     if (user) {
+//       //res.send({ msg: "User created successfully" });
+//       res.send({ find: true, email });
+//     } else {
+//       res.send({ msg: "User not found please sign in first" });
+//       //res.send({ find: false });
+//     }
+//   }
+// });
 
 UserController.post("/login/pass", async (req, res) => {
   const { password } = req.body;
