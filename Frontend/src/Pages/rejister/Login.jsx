@@ -12,17 +12,38 @@ import {
     Text,
     useColorModeValue,
 } from '@chakra-ui/react';
+import axios from 'axios';
+import { useState } from 'react';
 
 function Login() {
+
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+
+
+    const handlelogin = () => {
+        axios.post("https://ambigious-cap-backend.onrender.com/user/login", { email, password })
+            .then((res) => {
+                console.log(res);
+                setEmail("");
+                setPassword("")
+                alert(res.data.msg)
+
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }
     return (
         <Flex
-            minH={'100vh'}
+
             align={'center'}
             justify={'center'}
+            ml="500"
             bg={useColorModeValue('gray.50', 'gray.800')}>
             <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
                 <Stack align={'center'}>
-                    <Heading fontSize={'4xl'}>Sign in to your account</Heading>
+                    <Heading fontSize={'4xl'}>Log in to your account</Heading>
                     <Text fontSize={'lg'} color={'gray.600'}>
                         to enjoy all of our cool <Link color={'blue.400'}>features</Link> ✌️
                     </Text>
@@ -32,30 +53,25 @@ function Login() {
                     bg={useColorModeValue('white', 'gray.700')}
                     boxShadow={'lg'}
                     p={8}>
-                    <Stack spacing={4}>
+                    <Stack spacing={6}>
                         <FormControl id="email">
                             <FormLabel>Email address</FormLabel>
-                            <Input type="email" />
+                            <Input type="email" value={email} placeholder='enter email' onChange={(e) => { setEmail(e.target.value) }} />
                         </FormControl>
                         <FormControl id="password">
                             <FormLabel>Password</FormLabel>
-                            <Input type="password" />
+                            <Input type="password" value={password} placeholder='enter password' onChange={(e) => { setPassword(e.target.value) }} />
                         </FormControl>
                         <Stack spacing={10}>
-                            <Stack
-                                direction={{ base: 'column', sm: 'row' }}
-                                align={'start'}
-                                justify={'space-between'}>
-                                <Checkbox>Remember me</Checkbox>
-                                <Link color={'blue.400'}>Forgot password?</Link>
-                            </Stack>
+
                             <Button
+                                onClick={handlelogin}
                                 bg={'blue.400'}
                                 color={'white'}
                                 _hover={{
                                     bg: 'blue.500',
                                 }}>
-                                Sign in
+                                Log in
                             </Button>
                         </Stack>
                     </Stack>

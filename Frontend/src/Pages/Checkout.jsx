@@ -20,14 +20,14 @@ const Checkout = () => {
     // const cartItem = useFetch("https://stark-lake-19402.herokuapp.com/cart")
     // const productdata = cartItem.data
     // console.log(cartItem.data)
+let total=1200
 
-
-    var total = productdata.reduce(function (sum, el) {
-        if (code == "MASAI") {
-            return (sum + (Number(el.Price) * Number(el.Quantity)) * 0.7)
-        }
-        return sum + (Number(el.Price) * Number(el.Quantity))
-    }, 0)
+    // var total = productdata.reduce(function (sum, el) {
+    //     if (code == "MASAI") {
+    //         return (sum + (Number(el.Price) * Number(el.Quantity)) * 0.7)
+    //     }
+    //     return sum + (Number(el.Price) * Number(el.Quantity))
+    // }, 0)
 
     //  const [subTotal , setSubTotal] = useState(total)
     //  console.log(subTotal)
@@ -102,7 +102,7 @@ const Checkout = () => {
                             Save this information for next time{" "}
                         </Checkbox>
                         <Text>
-                            By continuing, you agree to Bluemercury's{" "}
+                            By continuing, you agree to Sephora's{" "}
                             <b> Privacy Practices.</b>
                         </Text>
                         <Flex w="100%" justifyContent={"flex-end"} m="20px 0px">
@@ -119,7 +119,7 @@ const Checkout = () => {
 
                         <hr />
                         <Text m="10px 0px" fontSize={"14px"} letterSpacing="0.9px">
-                            All rights reserved bluemercury{" "}
+                            All rights reserved Sephora{" "}
                         </Text>
                     </Box>
                 </Flex>
@@ -139,7 +139,7 @@ const Checkout = () => {
                     >
                         <Box w="80%" m="auto">
                             {" "}
-                            Iteme
+                            Items
                         </Box>
                         <Flex alignItems={"center"} w="100%">
                             <Box
