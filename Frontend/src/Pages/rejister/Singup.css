@@ -1,0 +1,36 @@
+.forapper1{
+  width: 100vw;
+  height: auto;
+  background-color:rgb(0,0,0,0.5);
+  position:fixed;
+  top: 5px;
+  backdrop-filter:blur(.5px);
+
+}
+.adorm1{
+  width: 25%;
+  position: absolute;
+  left:38%;
+  top:10%;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background : white;
+  font-size: larger;
+  font-weight: bold;
+}
+.trncs2{
+  margin:0px;
+  padding: 0px;
+  font-weight: bolder;
+  font-size: larger;
+  /* border:1px solid red; */
+
+}
+.trncs1{
+  margin:0px;
+  padding: 0px;
+}
+.input{
+  border: 1px rgb(131, 107, 107);
+  width: auto;
+  height:auto;
+}

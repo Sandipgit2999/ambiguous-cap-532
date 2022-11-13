@@ -1,20 +1,17 @@
-import './App.css'
+// import './App.css'
+import { Signup } from "./Pages/rejister/singup"
 import { Allroutes } from "./Routes/Allroutes"
-// import Footer from './Components/footer/Footer'
-// import Navbar from './Components/navbar/Navbar'
+
 
 
 function App() {
 
   return (
-    <div className="App">
-      <Allroutes />
+    <div >
 
-
-      {/* <Allroutes/> */}
-      {/* <Navbar />
-      <Footer /> */}
-
+        {/* <Allroutes/> */}
+        <Signup/>
+        
     </div>
   )
 }
