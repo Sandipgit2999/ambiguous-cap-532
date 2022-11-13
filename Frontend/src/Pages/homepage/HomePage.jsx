@@ -1,3 +1,4 @@
+import { Slider } from "./Slider";
 import React from "react";
 import "./HomePage.css";
 
@@ -5,6 +6,7 @@ import "./HomePage.css";
 const HomePage = () => {
   return (
     <>
+    <div><Slider/></div>
     <div className="header">
       <h2>Hottest On The Scene</h2></div>
       <div className="grid">
