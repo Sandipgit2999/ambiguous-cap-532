@@ -1,20 +1,22 @@
-import './App.css'
+// import './App.css'
 import { Allroutes } from "./Routes/Allroutes"
-// import Footer from './Components/footer/Footer'
-// import Navbar from './Components/navbar/Navbar'
 import ProductInfo from "./Pages/SingleProduct/ProductInfo"
+import HomePage from "./Pages/homepage/HomePage"
+import Navbar from "./Components/navbar/Navbar"
+import Footer from "./Components/footer/Footer"
 
 
 function App() {
 
   return (
     <div >
-      <Allroutes />
-
-      <ProductInfo />
+      {/* <Allroutes /> */}
+        <Navbar />
+        <HomePage/>
+      {/* <ProductInfo /> */}
       {/* <Allroutes/> */}
-      {/* <Navbar />
-      <Footer /> */}
+     
+      <Footer />
 
     </div>
   )
