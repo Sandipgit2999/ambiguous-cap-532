@@ -17,7 +17,6 @@ app.get("/", (req, res) => {
 });
 app.use("/cart", CartController);
 app.use(authorization);
-
 app.use("/favourite", FavouriteController);
 const PORT = 8080 || process.env.PORT;
 
