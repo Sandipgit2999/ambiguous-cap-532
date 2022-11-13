@@ -1,7 +1,6 @@
 require("dotenv").config();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const { logauth } = require("../middlewares/logAuth");
 const secret = process.env.SECRET_KEY;
 const { Router } = require("express");
 const { UserModel } = require("../Models/user.model");
