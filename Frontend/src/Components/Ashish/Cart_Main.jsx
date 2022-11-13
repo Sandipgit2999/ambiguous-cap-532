@@ -13,6 +13,7 @@ function Cart_Main() {
     useEffect(()=>{
         dispatch(getCart())
     },[])
+    console.log(data1)
     
   return (
     <div>

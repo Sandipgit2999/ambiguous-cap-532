@@ -2,6 +2,7 @@ import React from 'react'
 import "./Ak_cart.css"
 
 const Ak_cart = ({
+    
     name,
     image_link,
     price,

@@ -35,7 +35,7 @@ function Ak_Navbar() {
   
   return (
     <div>
-        <BsFillCartFill onClick={onOpen} ref={btnRef}/>
+        <BsFillCartFill ref={btnRef}/>
 
 
         <Drawer
