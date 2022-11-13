@@ -10,12 +10,17 @@ function App() {
 
   return (
     <div >
+
+      <Allroutes />
+
+
       {/* <Allroutes /> */}
-        <Navbar />
-        <HomePage/>
+      <Navbar />
+      <HomePage />
       {/* <ProductInfo /> */}
+
       {/* <Allroutes/> */}
-     
+
       <Footer />
 
     </div>
