@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { RiHeartAddLine } from "react-icons/ri";
 import axios from "axios";
@@ -18,10 +18,28 @@ import {
 
 
 const ProductInfomiddle = () => {
-
+    const [prod, setProd] = useState();
     const { id } = useParams();
 
-    const prodid = "636b8c35f8c307387e35e346";
+    console.log(".....productmiddel", id)
+    const add = (_id) => {
+        axios.get(`https://ambigious-cap-backend.onrender.com/makeup/${_id}`)
+            .then((res) => {
+                console.log(res.data);
+                setProd(res.data)
+            }).catch((err) => {
+                console.log(err)
+            })
+    }
+
+    useEffect(() => {
+        add(id)
+    }, [id])
+
+
+
+
+   
     const Addtocart = (id) => {
         axios.post(`https://ambigious-cap-backend.onrender.com/cart/create/${id}`)
             .then((res) => {
@@ -40,6 +58,7 @@ const ProductInfomiddle = () => {
         axios.post(`https://ambigious-cap-backend.onrender.com/favourite/create/${id}`)
             .then((res) => {
                 console.log(res);
+                alert(res.data.msg)
             })
             .catch((err) => {
                 console.log(err)
@@ -47,7 +66,8 @@ const ProductInfomiddle = () => {
     }
     return (
         <>
-            <Grid
+            {
+                prod && <Grid
                 w="90%"
                 h={{ base: "200px", md: "400px", lg: "500px" }}
                 m="auto"
@@ -60,7 +80,7 @@ const ProductInfomiddle = () => {
                     m={{ base: "auto", lg: "0" }}
                     h={{ base: "200px", md: "400px", lg: "500px" }}
                 >
-                    <Image w="100%" h="100%" src=/*{currprod.Image}*/ "https://cdn11.nnnow.com/web-images/large/styles/8V1ZDUHUDR0/1533201155000/1.jpg" />
+                    <Image w="100%" h="100%" src={prod.image_link}  />
                 </GridItem>
 
                 <GridItem w="100%" h="70vh" justifyItems="flex-start" flexDirection="column">
@@ -68,7 +88,7 @@ const ProductInfomiddle = () => {
                     <Box display="flex" flexDirection="column" mr="15%" >
 
                         <Text fontSize="10px" fontWeight="semibold" color="gray.600">
-                            FLAT 15% OFF
+                            FLAT {prod.price*1.5}% OFF
                         </Text>
 
                         <Text
@@ -81,9 +101,9 @@ const ProductInfomiddle = () => {
                         </Text>
                         <Text fontSize="xsm" mt="4" ml="4" color="gray.600">
 
-                            Mineral Foundation Compact - D40
+                            {prod.name}
                         </Text>
-                        <Text mt="4%">Rs. 1,000</Text>
+                        <Text mt="4%">Rs. {prod.price*200}</Text>
                     </Box>
 
                     <Box display="flex" mt="4%" ml="20%" justifyContent="flex-start">
@@ -122,7 +142,7 @@ const ProductInfomiddle = () => {
                             pl="4"
                             pr="4"
                             cursor="pointer"
-                            onClick={() => Addtocart(prodid)}
+                            onClick={() => Addtocart(id)}
 
                         > <Text color="white" ml="15" fontWeight="bold">
                                 ADD TO BAG
@@ -132,7 +152,7 @@ const ProductInfomiddle = () => {
                     </Box>
 
                     <Box mb="5%">
-                        <Box border="2px solid pink" onClick={() => { Addfavourite(prodid) }} borderRadius="50%" cursor="pointer" width="50px" height="50px"
+                        <Box border="2px solid pink" onClick={() => { Addfavourite(id) }} borderRadius="50%" cursor="pointer" width="50px" height="50px"
                             bg=" white"
                             display="inline-block" > <RiHeartAddLine style={{ width: "95%", color: "pink", height: "95%" }} /></Box>
                         <Text>Favourites</Text>
@@ -153,6 +173,7 @@ const ProductInfomiddle = () => {
                     </Box>
                 </GridItem>
             </Grid>
+            }
         </>
     )
 }

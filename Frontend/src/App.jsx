@@ -11,7 +11,7 @@ function App() {
     <div >
       <Allroutes />
 
-      <ProductInfo />
+      
       {/* <Allroutes/> */}
       {/* <Navbar />
       <Footer /> */}
