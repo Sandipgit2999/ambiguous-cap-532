@@ -28,7 +28,10 @@ FavouriteController.post("/create/:productId", async (req, res) => {
   } = makeup_model;
   //console.log(brand);
 
-  const favourite_model = await FavouriteModel.findOne({ oldId: productId,userId });
+  const favourite_model = await FavouriteModel.findOne({
+    oldId: productId,
+    userId,
+  });
 
   if (favourite_model) {
     res.send({ msg: "product already in favourites" });
@@ -57,7 +60,7 @@ FavouriteController.delete("/delete/:prodId", async (req, res) => {
   //const prodId=Number(productId)
   //console.log(prodId);
   const { userId } = req.body;
- // console.log(userId,"userId");
+  // console.log(userId,"userId");
 
   if (prodId.length === 24) {
     const favourite_model = await FavouriteModel.findOne({
