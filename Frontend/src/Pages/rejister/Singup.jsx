@@ -126,7 +126,7 @@ export const Signup = () => {
                 border: "none",
                 width: "30%",
                 color: "white",
-               
+
                 borderRadius: "5px",
               }}
             />
@@ -142,4 +142,4 @@ export const Signup = () => {
       </div>
     </>
   );
-}; 
+};
