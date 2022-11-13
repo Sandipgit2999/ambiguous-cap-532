@@ -1,0 +1,12 @@
+.img{
+    margin-top: 22px;
+    height:95px;
+    width:70px;
+    margin: left;
+    /* border: 1px solid red; */
+}
+
+#maincart{
+    display: flex;
+    gap:1rem
+}
