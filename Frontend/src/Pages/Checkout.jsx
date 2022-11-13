@@ -2,8 +2,6 @@ import { Flex, Box, Image, Text, Input } from "@chakra-ui/react";
 import { Checkbox, CheckboxGroup, Button } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useState } from "react";
-// import useFetch from "../Hooks/useFetch"
-
 import { Link as RLink } from "react-router-dom";
 
 const Checkout = () => {
@@ -20,7 +18,7 @@ const Checkout = () => {
     // const cartItem = useFetch("https://stark-lake-19402.herokuapp.com/cart")
     // const productdata = cartItem.data
     // console.log(cartItem.data)
-let total=1200
+    let total = 1200
 
     // var total = productdata.reduce(function (sum, el) {
     //     if (code == "MASAI") {
