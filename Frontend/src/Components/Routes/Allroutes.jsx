@@ -1,13 +1,14 @@
 import React from 'react'
 import {Routes,Route} from "react-router-dom"
-// import HomePage from '../Pages/HomePage'
+import HomePage from '../Pages/homepage/HomePage'
 import {Products} from "../Pages/Products"
 
 export const Allroutes = () => {
   return (
     <div>
+      
         <Routes>
-        {/* <Route path="/" element={<HomePage/>}></Route> */}
+        <Route path="/" element={<HomePage/>}></Route>
             <Route path="/products" element={<Products/>}></Route>
         </Routes>
     </div>

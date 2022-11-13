@@ -1,9 +1,10 @@
 * {
   align-items: center;
+  background-color: whitesmoke;
 }
 
 .NavbarContainer-1 {
-  width: 100vw;
+  width: 100%;
 }
 
 .Navbar-11 {
@@ -34,7 +35,7 @@
 .Navbar-12 {
   border: 0px solid transparent;
   border-bottom-width: 1px;
-  width: 60%;
+  width: auto;
   border-bottom-color: rgb(44, 43, 43);
   display: flex;
 }
@@ -206,3 +207,10 @@
   display: flex;
   align-items: center;
 }
+
+/* @media screen and (max-width:425px) {
+  .grid{
+   
+     
+   }
+ } */
