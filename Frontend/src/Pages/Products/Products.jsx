@@ -14,7 +14,8 @@ import Navbar from "../../Components/navbar/Navbar";
 
 
 export const Products = () => {
-  const products = useSelector((state) => state.products);
+  const products = useSelector((state) => state.ProductsReducer.products);
+  console.log(products)
   const [newProd, setNewProd] = useState([...products] || []);
   const [searchParams] = useSearchParams();
   const location = useLocation();

@@ -3,6 +3,7 @@ import { Checkbox, CheckboxGroup, Button } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useState } from "react";
 import { Link as RLink } from "react-router-dom";
+import { FaRegUser } from "react-icons/fa";
 
 const Checkout = () => {
     const [code, setCode] = useState("")
@@ -39,7 +40,21 @@ const Checkout = () => {
             alert("Wrong Coupon Code")
         }
     }
-    return (
+    return (<> <div className='a1'>
+                <div className='img1'>
+                    <img className='img2' src="https://cdn07.nnnow.com/web-images/master/navtree_metaData/59b2657be4b0e6b6e16a9180/1548053082431/se.png" alt="" />
+                </div>
+                <div className='logo'>
+                    <FaRegUser id="fa" />
+                    
+
+                </div>
+
+            </div>
+
+            <div className='bag'>
+                <h2 className='bag1'>CHECKOUT</h2>
+            </div>
         <Box width={"9xl"} color={"rgb(98,98,98)"}>
             <Flex flexDirection={["column", "column", "row"]}>
                 <Flex
@@ -208,7 +223,7 @@ const Checkout = () => {
 
             </Flex>
         </Box>
-
+</>
     );
 };
 

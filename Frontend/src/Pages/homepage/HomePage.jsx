@@ -1,11 +1,13 @@
 import { Slider } from "./Slider";
 import React from "react";
 import "./HomePage.css";
-
+import  Navbar  from "../../Components/navbar/Navbar";
+import Footer from "../../Components/footer/Footer"
 
 const HomePage = () => {
   return (
     <>
+    <Navbar/>
     <div><Slider/></div>
     <div className="header">
       <h2>Hottest On The Scene</h2></div>
@@ -192,6 +194,7 @@ const HomePage = () => {
         </div>
       </div>
       <button className="btn" >BACK TO TOP </button>
+      <Footer/>
     </>
   );
 };

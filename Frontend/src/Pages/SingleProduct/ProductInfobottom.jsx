@@ -8,19 +8,19 @@ import {
     GridItem,
 
 } from "@chakra-ui/react";
+import API from "../../Components/Url";
 
 
-
-const ProductInfobottom = ({ item }) => {
+const ProductInfobottom = () => {
 
     const [prod, setProd] = useState();
-
+    const [finerdetails, setFinerdetails] = useState(true);
+    const [aboutsephora, setAboutsephora] = useState(false)
+    const [returnexchange, setReturnexchange] = useState(false)
     const { id } = useParams();
-    console.log(".....productbottom", id)
-
 
     const add = (_id) => {
-        axios.get(`https://ambigious-cap-backend.onrender.com/makeup/${_id}`)
+        axios.get(`${API}/makeup/${_id}`)
             .then((res) => {
                 console.log(res.data);
                 setProd(res.data)
@@ -33,15 +33,6 @@ const ProductInfobottom = ({ item }) => {
         add(id)
     }, [id])
 
-
-
-
-
-    console.log(item, "item")
-
-    const [finerdetails, setFinerdetails] = useState(true);
-    const [aboutsephora, setAboutsephora] = useState(false)
-    const [returnexchange, setReturnexchange] = useState(false)
     return (
         <>{
             prod && <Grid bg="red" backgroundImage={prod.image_link} w="95%"

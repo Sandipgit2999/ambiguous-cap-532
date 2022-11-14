@@ -1,11 +1,29 @@
 import React from 'react'
 import { Input, InputGroup, InputLeftAddon, Stack, Image, Box, Flex, Button } from '@chakra-ui/react'
 import { Link as RLink } from "react-router-dom"
+import { FaRegUser } from "react-icons/fa";
 
 
 const Payments = () => {
     return (
+
+        <>
         <Box ml={"500"} border="1px solid pink">
+        <div className='a1'>
+        <div className='img1'>
+            <img className='img2' src="https://cdn07.nnnow.com/web-images/master/navtree_metaData/59b2657be4b0e6b6e16a9180/1548053082431/se.png" alt="" />
+        </div>
+        <div className='logo'>
+            <FaRegUser id="fa" />
+            
+
+        </div>
+
+    </div>
+
+    <div className='bag'>
+        <h2 className='bag1'>PAYMENT</h2>
+    </div>
             <Stack spacing={4} width={["300px", "400px", "500px"]} h="fit-content" m={["auto", "auto", "50px auto"]}>
                 <Image src="https://i.ibb.co/8mXRdkR/image-5-2.png"></Image>
                 <InputGroup>
@@ -26,6 +44,7 @@ const Payments = () => {
                 <Image src="https://i.ibb.co/KKDvTqX/image-1-10.png"></Image>
             </Stack>
         </Box>
+        </>
     )
 }
 
