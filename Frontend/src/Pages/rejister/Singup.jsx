@@ -1,145 +1,101 @@
-import { React, useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-import { Link } from "react-router-dom";
-import "./Singup.css";
-export const Signup = () => {
-  const [form, setForm] = useState({
-    Name: "",
-    Email: "",
-    Password: "",
-    Num: "",
-  });
+import {
+  Flex,
+  Box,
+  FormControl,
+  FormLabel,
+  Input,
+  Checkbox,
+  Stack,
+  Link,
+  Button,
+  Heading,
+  Text,
+  useColorModeValue,
+} from '@chakra-ui/react';
+import axios from 'axios';
+import { useState } from 'react';
+import API from '../../Components/Url';
+import { useNavigate } from "react-router-dom"
+
+function Signup() {
+
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [phone, setPhone] = useState("");
+  const [name, setName] = useState("")
   const navigate = useNavigate();
-  const handleChange = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    localStorage.setItem("user", JSON.stringify(form.Name));
 
-    var userList = JSON.parse(localStorage.getItem("allusers")) || [];
-    for (let i = 0; i < userList.length; i++) {
-      if (form.Email == userList[i].Email && form.Num == userList[i].Num) {
-        alert(`Email and mobile number already exist`);
-        return;
-      } else if (form.Email == userList[i].Email) {
-        alert(`Email already exist`);
-        return;
-      } else if (form.Num == userList[i].Num) {
-        alert(`mobile number already exist`);
-        return;
-      }
-    }
-    userList.push(form);
-    localStorage.setItem("allusers", JSON.stringify(userList));
-    alert("signup successfull");
-    navigate("/");
-  };
+  const handleSignup = () => {
+    axios.post(`${API}/user/Signup`, { email, password, name, phone })
+      .then((res) => {
+        console.log(res);
+        setEmail("");
+        setPassword("")
+        setName("");
+        setPhone("")
+        navigate("/login")
+        alert(res.data.msg)
 
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
   return (
-    <>
-      <div className="forapper1">
-        <div className="adorm1">
-          <p></p>
-          <p
-            className="trncs2
-    "
-          >
-            CREATE <br /> ACCOUNT
-          </p>
-          <br />
-          <form onSubmit={handleSubmit}>
-            <span
-              className="trncs1
-    "
-            >
-              Name
-            </span>
-            <br />
-            <input
-              className="input"
-              required
-              type="text"
-              name="Name"
-              placeholder="Enter Name"
-              onInput={handleChange}
-            />
-            <br />
-            <span
-              className="trncs1
-          "
-            >
-              Email
-            </span>
-            <br />
-            <input
-              className="input"
-              required
-              type="email"
-              name="Email"
-              placeholder="Enter Email"
-              onInput={handleChange}
-            />
-            <br />
-            <span
-              className="trncs1
-          "
-            >
-              Password
-            </span>
-            <br />
-            <input
-              className="input"
-              required
-              type="password"
-              name="Password"
-              placeholder="Enter Password"
-              onInput={handleChange}
-            />
-            <br />
-            <span
-              className="trncs1
-          "
-            >
-              Phone Number
-            </span>
-            <br />
-            <input
-              className="input"
-              required
-              type="number"
-              name="Num"
-              placeholder="Phone Number"
-              onInput={handleChange}
-            />
-            <br />
-            <br></br>
-            <input
-              className="input"
-              type="Submit"
-              style={{
-                backgroundColor: "rgb(255,51,153)",
-                border: "none",
-                width: "30%",
-                color: "white",
+    <Flex
 
-                borderRadius: "5px",
-              }}
-            />
-          </form>
-          <p
-            style={{
-              color: "rgb(255,51,153)",
-            }}
-          >
-            <Link to={`/login`}>Back to Login</Link>
-          </p>
-        </div>
-      </div>
-    </>
+      align={'center'}
+      justify={'center'}
+      ml="500"
+      bg={useColorModeValue('gray.50', 'gray.800')}>
+      <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
+        <Stack align={'center'}>
+          <Heading fontSize={'4xl'}>Signup to your account</Heading>
+          <Text fontSize={'lg'} color={'gray.600'}>
+            to enjoy all of our cool <Link color={'blue.400'}>features</Link> ✌️
+          </Text>
+        </Stack>
+        <Box
+          rounded={'lg'}
+          bg={useColorModeValue('white', 'gray.700')}
+          boxShadow={'lg'}
+          p={8}>
+          <Stack spacing={6}>
+            <FormControl id="email">
+
+              <FormControl id="name">
+                <FormLabel>Name</FormLabel>
+                <Input type="text" value={name} placeholder='enter name' onChange={(e) => { setName(e.target.value) }} />
+              </FormControl>
+              <FormLabel>Email address</FormLabel>
+              <Input type="email" value={email} placeholder='enter email' onChange={(e) => { setEmail(e.target.value) }} />
+            </FormControl>
+            <FormControl id="password">
+              <FormLabel>Password</FormLabel>
+              <Input type="password" value={password} placeholder='enter password' onChange={(e) => { setPassword(e.target.value) }} />
+            </FormControl>
+            <FormControl id="email">
+              <FormLabel>Phone</FormLabel>
+              <Input type="text" value={phone} placeholder='enter phone' onChange={(e) => { setPhone(e.target.value) }} />
+            </FormControl>
+            <Stack spacing={10}>
+
+              <Button
+                onClick={handleSignup}
+                bg={'blue.400'}
+                color={'white'}
+                _hover={{
+                  bg: 'blue.500',
+                }}>
+                Sign in
+              </Button>
+            </Stack>
+          </Stack>
+        </Box>
+      </Stack>
+    </Flex>
   );
-};
+}
+
+
+export default Signup

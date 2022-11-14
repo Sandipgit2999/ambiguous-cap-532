@@ -6,7 +6,7 @@ import {
     Input,
     Checkbox,
     Stack,
-    Link,
+
     Button,
     Heading,
     Text,
@@ -14,20 +14,28 @@ import {
 } from '@chakra-ui/react';
 import axios from 'axios';
 import { useState } from 'react';
+import API from '../../Components/Url';
+import { Link, useNavigate } from "react-router-dom"
 
 function Login() {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
-
+    const navigate = useNavigate();
     const handlelogin = () => {
-        axios.post("https://ambigious-cap-backend.onrender.com/user/login", { email, password })
+        axios.post(`${API}/user/login`, { email, password })
             .then((res) => {
                 console.log(res);
                 setEmail("");
                 setPassword("")
+                if(res.data.msg==="successfully login"){
+                    localStorage.setItem("sephoratoken", JSON.stringify(res.data.token))
+                    navigate("/")
+                }
+                
                 alert(res.data.msg)
+
 
             })
             .catch((err) => {
@@ -74,6 +82,8 @@ function Login() {
                                 Log in
                             </Button>
                         </Stack>
+
+                        <Text>Dont have a account?  <Link to="/signup">  Create one</Link></Text>
                     </Stack>
                 </Box>
             </Stack>

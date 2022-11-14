@@ -1,26 +1,23 @@
-import * as types from "./cartactiontype"
+import * as types from "./cartactiontype";
 
-const helpInitalState = {
-    loading: false,
-    error: false,
-    data: [],
-  };
-  
-  export const cartReducer = (state = cartInitalState,{type,payload}) => {
-       
-    switch(type)
-    {
-      case types.CART_DATA_LOADING:{
-        return {...state,loading:true,error:false}
-      }
-      case types.CART_DATA_SUCESS:{
-        return{...state,loading:false,error:false,data:payload}
-      }
-      case types.CART_DATA_FAIL:{
-        return{...state,loading:false,error:true}
-      }
+const cartInitalState = {
+  loading: false,
+  error: false,
+  data: [],
+};
+
+export const cartReducer = (state = cartInitalState, { type, payload }) => {
+  switch (type) {
+    case types.CART_DATA_LOADING: {
+      return { ...state, loading: true, error: false };
     }
-  
-    return state;
-  };
+    case types.CART_DATA_SUCESS: {
+      return { ...state, loading: false, error: false, data: payload };
+    }
+    case types.CART_DATA_FAIL: {
+      return { ...state, loading: false, error: true };
+    }
+  }
 
+  return state;
+};

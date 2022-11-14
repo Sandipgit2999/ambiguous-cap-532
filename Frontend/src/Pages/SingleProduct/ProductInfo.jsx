@@ -13,17 +13,15 @@ import {
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import ProductInfomiddle from "./ProductInfomiddle";
 import ProductInfobottom from "./ProductInfobottom";
-
+import API from "../../Components/Url";
 
 
 const ProductInfo = () => {
     const [prod, setProd] = useState();
-
     const { id } = useParams();
-    console.log(id, "id");
 
     const add = (_id) => {
-        axios.get(`https://ambigious-cap-backend.onrender.com/makeup/${_id}`)
+        axios.get(`${API}/makeup/${_id}`)
             .then((res) => {
                 console.log(res.data);
                 setProd(res.data)
@@ -62,9 +60,9 @@ const ProductInfo = () => {
                                 </BreadcrumbItem>
                             </Breadcrumb>
                         </Box>
-                        <ProductInfomiddle Item={prod} />
+                        <ProductInfomiddle />
                     </Box>
-                    <ProductInfobottom Item={"prod"} />
+                    <ProductInfobottom />
                 </Box>
             }
             <Footer />
