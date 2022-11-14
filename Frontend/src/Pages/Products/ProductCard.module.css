@@ -7,3 +7,11 @@
 .container::-webkit-scrollbar { 
     display: none;  /* Safari and Chrome */
 }
+.hov{
+    display: block;
+    
+  }
+  .nonhover{
+    display: none;
+    
+  }
