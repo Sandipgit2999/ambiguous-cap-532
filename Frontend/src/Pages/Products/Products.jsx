@@ -57,7 +57,6 @@ export const Products = () => {
       <Flex h="100vh"
         //  border="1px green solid"
         w='100%' >
-
         <Box>
           <Filter setVal={setVal} />
         </Box>
